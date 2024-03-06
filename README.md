@@ -1,6 +1,9 @@
-# Getting Started with Create React App
+# Newsfinder
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Newsfinder é um app criado em React para busca de notícias e imagens.
+
+
+
 
 ## Available Scripts
 
