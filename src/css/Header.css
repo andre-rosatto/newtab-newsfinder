@@ -1,0 +1,75 @@
+.Header {
+	background-image: url('https://placehold.co/1920x788');
+	background-size: cover;
+	background-repeat: no-repeat;
+	display: flex;
+	padding: 40px 64px;
+	height: 788px;
+	text-align: left;
+	color: white;
+}
+
+.Header .text-container {
+	flex: 1;
+}
+
+.Header h1 {
+	font-size: 35px;
+	margin-bottom: 168px;
+}
+
+.Header h2 {
+	font-size: 82px;
+	margin-left: 76px;
+	margin-bottom: 28px;
+}
+
+.Header p {
+	font-size: 31px;
+	margin-left: 76px;
+}
+
+.Header nav {
+	flex: 1;
+}
+
+.Header nav ul {
+	display: flex;
+	gap: 35px;
+	justify-content: flex-end;
+}
+
+.Header nav li {
+	list-style: none;
+}
+
+.Header nav li a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+	font-size: 17px;
+	color: white;
+	border-radius: 50px;
+	width: 170px;
+	padding: 15px 0;
+	text-align: center;
+}
+
+.Header nav li a.about {
+	background-color: #D842BD;
+}
+
+.Header nav li a.about::before {
+	content: url('https://placehold.co/13x13');
+	margin-right: 15px;
+}
+
+.Header nav li a.login {
+	background-color: #3633F7;
+}
+
+.Header nav li a.login::before {
+	content: url('https://placehold.co/13x13');
+	margin-right: 15px;
+}

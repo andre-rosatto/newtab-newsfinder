@@ -1,64 +1,44 @@
-* {
-	margin: 0;
-	padding: 0;
-}
-
-.Home header {
-	background-image: url('https://placehold.co/1920x788');
+.Home {
 	display: flex;
-	padding: 40px 64px;
-	height: 788px;
-	text-align: left;
-	color: white;
+	flex-direction: column;
+	align-items: center;
+	max-width: 1920px;
+	margin: auto;
 	font-family: Rubik, Arial, Helvetica, sans-serif;
 }
 
-.Home header h1 {
-	font-size: 35px;
-}
-
-.Home header h2 {
-	font-size: 82px;
-}
-
-.Home header p {
-	font-size: 31px;
-}
-
-.Home header nav ul {
+.Home form {
+	border-radius: 100px;
+	width: 1000px;
+	padding: 30px 60px;
+	box-shadow: 8px 14px 30px #5538EE29;
 	display: flex;
-	gap: 35px;
+	align-items: center;
+	margin-top: -75px;
+	background-color: white;
+	gap: 40px;
 }
 
-.Home header nav li {
-	list-style: none;
+.Home form button {
+	background: url('https://placehold.co/50x50');
+	background-position: center;
+	background-repeat: no-repeat;
+	width: 50px;
+	height: 50px;
+	border: none;
+	cursor: pointer;
 }
 
-.Home header nav li a {
-	display: inline-block;
-	text-decoration: none;
-	font-size: 17px;
-	color: white;
-	border-radius: 50px;
-	width: 170px;
-	padding: 15px 0;
-	text-align: center;
+.Home form input {
+	font-size: 50px;
+	border: none;
+	flex: 1;
+	padding: 10px;
+	color: #8D9DA2FF;
+	outline: none;
 }
 
-.Home header nav li a.about {
-	background-color: #D842BD;
-}
-
-.Home header nav li a.about::before {
-	content: url('https://placehold.co/13x13');
-	margin-right: 15px;
-}
-
-.Home header nav li a.login {
-	background-color: #3633F7;
-}
-
-.Home header nav li a.login::before {
-	content: url('https://placehold.co/13x13');
-	margin-right: 15px;
+.Home form input::placeholder {
+	color: #8D9DA232;
+	opacity: 1;
 }

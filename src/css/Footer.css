@@ -1,0 +1,10 @@
+.Footer {
+	background-color: #D842BD;
+	height: 203px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	width: 100%;
+	font-size: 25px;
+}
