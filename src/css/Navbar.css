@@ -12,8 +12,10 @@
 }
 
 .Navbar ul {
+	display: flex;
 	margin: 0;
 	padding: 0;
+	gap: 35px;
 }
 
 .Navbar li {
@@ -50,4 +52,28 @@
 .Navbar li a.login::before {
 	content: url('../assets/icon-user-alt.svg');
 	margin-right: 15px;
+}
+
+@media screen and (max-width: 750px) {
+	.Navbar h1 {
+		font-size: 19px;
+	}
+
+	.Navbar ul {
+		gap: 9px;
+	}
+
+	.Navbar li a {
+		font-size: 10px;
+		width: 106px;
+		padding: 9px 0;
+		text-align: center;
+		box-shadow: 0 3px 6px #5538EE29;
+	}
+
+	.Navbar li a.about::before,
+	.Navbar li a.login::before {
+		content: url('../assets/icon-info-circle.svg');
+		margin-right: 8px;
+	}
 }

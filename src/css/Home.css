@@ -8,7 +8,9 @@
 }
 
 .Home header {
-	background: url('../assets/hero-bg.jpg') no-repeat top right;
+	background-image: url('../assets/hero-bg.jpg');
+	background-position: center right;
+	background-repeat: no-repeat;
 	display: flex;
 	flex-direction: column;
 	padding: 40px 64px;
@@ -28,21 +30,15 @@
 	justify-content: center;
 }
 
-.Home header h2 {
+.Home header .text-container h2 {
 	font-size: 82px;
 	margin: 0;
 }
 
-.Home header p {
+.Home header .text-container p {
 	margin-top: 28px;
 	margin-bottom: 0;
 	font-size: 31px;
-}
-
-.Home header nav ul {
-	display: flex;
-	gap: 35px;
-	justify-content: flex-end;
 }
 
 .Home form {
@@ -52,10 +48,10 @@
 	box-shadow: 8px 14px 30px #5538EE29;
 	display: flex;
 	align-items: center;
-	margin-top: -60px;
-	margin-bottom: 185px;
+	margin-bottom: 150px;
 	background-color: white;
 	gap: 40px;
+	transform: translateY(-50%);
 }
 
 .Home form button {
@@ -77,7 +73,7 @@
 .Home form input {
 	font-size: 50px;
 	border: none;
-	flex: 1;
+	width: 100%;
 	padding: 10px;
 	color: #8D9DA2FF;
 	outline: none;
@@ -95,4 +91,82 @@
 	padding: 0 186px;
 	margin-top: 125px;
 	margin-bottom: 183px;
+}
+
+@media screen and (max-width: 1400px) {
+	.Home header {
+		background-position: center top;
+		height: 600px;
+	}
+
+	.Home header .text-container {
+		margin-left: 10px;
+	}
+
+	.Home header .text-container h2 {
+		font-size: 42px;
+	}
+
+	.Home header .text-container p {
+		font-size: 20px;
+	}
+}
+
+@media screen and (max-width: 750px) {
+	.Home header {
+		background: url('../assets/hero-bg-mobile.jpg');
+		background-size: cover;
+		height: 520px;
+		padding: 33px 16px;
+	}
+
+	.Home header .text-container {
+		margin-left: 76px;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	.Home header .text-container {
+		margin-left: 15px;
+		justify-content: flex-start;
+		margin-top: 71px;
+	}
+
+	.Home header .text-container h2 {
+		font-size: 36px;
+	}
+
+	.Home header .text-container p {
+		font-size: 16px;
+	}
+
+	.Home form {
+		width: 75%;
+		padding: 5px 30px;
+		gap: 14px;
+		transform: translateY(-175px);
+		margin-bottom: 0;
+	}
+
+	.Home form button {
+		width: 15px;
+		min-width: 15px;
+		height: 15px;
+		background-size: 15px;
+	}
+
+	.Home form input {
+		font-size: 17px;
+	}
+
+	.Home .cards-container {
+		display: flex;
+		flex-direction: column;
+		gap: 32px;
+		padding: 0 20px;
+		margin-top: 50px;
+		margin-bottom: 56px;
+	}
 }

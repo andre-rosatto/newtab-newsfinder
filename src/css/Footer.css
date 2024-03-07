@@ -8,3 +8,10 @@
 	width: 100%;
 	font-size: 25px;
 }
+
+@media screen and (max-width: 750px) {
+	.Footer {
+		height: 68px;
+		font-size: 12px;
+	}
+}

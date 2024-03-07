@@ -1,8 +1,8 @@
 .Gallery {
 	display: flex;
 	flex-direction: column;
-
-	width: 1720px;
+	width: 90%;
+	max-width: 1700px;
 }
 
 .Gallery p {
@@ -10,12 +10,12 @@
 	font-size: 32px;
 	font-weight: bold;
 	margin: 0;
+	text-align: center;
 }
 
 .Gallery .carrousel {
 	overflow-x: hidden;
 	margin-top: 114px;
-	padding: 0 30px;
 	position: relative;
 }
 
@@ -66,10 +66,53 @@
 
 .Gallery button.previous {
 	background-image: url('../assets/icon-arrow-left.svg');
-	left: calc(64px / 2);
 }
 
 .Gallery button.next {
 	background-image: url('../assets/icon-arrow-right.svg');
 	right: 0;
+}
+
+@media screen and (max-width: 750px) {
+	.Gallery {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+	}
+
+	.Gallery p {
+		font-size: 22px;
+	}
+
+	.Gallery .carrousel {
+		overflow-x: auto;
+		margin-top: 32px;
+		padding: 0 20px;
+	}
+
+	.Gallery .carrousel ul {
+		padding: 0;
+		display: flex;
+		gap: 14px;
+		margin: 0;
+	}
+
+	.Gallery .carrousel li {
+		width: 159px;
+		height: 228px;
+	}
+
+	.Gallery .carrousel p {
+		font-size: 13px;
+		bottom: 29px;
+		left: 15px;
+	}
+
+	.Gallery .carrousel p span {
+		font-size: 14px;
+	}
+
+	.Gallery button {
+		display: none;
+	}
 }

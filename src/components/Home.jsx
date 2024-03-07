@@ -6,30 +6,67 @@ import Navbar from './Navbar';
 import NewsCard from './NewsCard';
 import Gallery from './Gallery';
 
-const CARDS = [
-	{ title: 'Título', text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat...' },
-	{ title: 'Título', text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat...' },
-	{ title: 'Título', text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat...' },
-	{ title: 'Título', text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat...' },
-	{ title: 'Título', text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat...' },
-	{ title: 'Título', text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat...' },
-	{ title: 'Título', text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat...' },
-	{ title: 'Título', text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat...' },
-	{ title: 'Título', text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat...' },
-	{ title: 'Título', text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat...' }
-];
-
-const IMAGES = [
-	'https://placehold.co/400x400/333/888',
-	'https://placehold.co/500x400/333/888',
-	'https://placehold.co/400x500/333/888',
-	'https://placehold.co/600x400/333/888',
-	'https://placehold.co/400x600/333/888',
-	'https://placehold.co/800x500/333/888',
-	'https://placehold.co/500x800/333/888',
-	'https://placehold.co/765x334/333/888',
-	'https://placehold.co/445x982/333/888',
-	'https://placehold.co/1000x2345/333/888',
+const searchResults = [
+	{
+		title: 'Título',
+		text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat...',
+		image: 'https://placehold.co/400x400/333/888',
+		hashtag: 'natureza'
+	},
+	{
+		title: 'Título',
+		text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat...',
+		image: 'https://placehold.co/500x400/333/888',
+		hashtag: 'natureza'
+	},
+	{
+		title: 'Título',
+		text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat...',
+		image: 'https://placehold.co/400x500/333/888',
+		hashtag: 'natureza'
+	},
+	{
+		title: 'Título',
+		text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat...',
+		image: 'https://placehold.co/600x400/333/888',
+		hashtag: 'natureza'
+	},
+	{
+		title: 'Título',
+		text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat...',
+		image: 'https://placehold.co/400x600/333/888',
+		hashtag: 'natureza'
+	},
+	{
+		title: 'Título',
+		text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat...',
+		image: 'https://placehold.co/800x500/333/888',
+		hashtag: 'natureza'
+	},
+	{
+		title: 'Título',
+		text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat...',
+		image: 'https://placehold.co/500x800/333/888',
+		hashtag: 'natureza'
+	},
+	{
+		title: 'Título',
+		text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat...',
+		image: 'https://placehold.co/765x334/333/888',
+		hashtag: 'natureza'
+	},
+	{
+		title: 'Título',
+		text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat...',
+		image: 'https://placehold.co/445x982/333/888',
+		hashtag: 'natureza'
+	},
+	{
+		title: 'Título',
+		text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat...',
+		image: 'https://placehold.co/1000x2345/333/888',
+		hashtag: 'natureza'
+	},
 ];
 
 export default function Home() {
@@ -48,9 +85,9 @@ export default function Home() {
 				<button disabled={!search.trim()}></button>
 				<input type="text" placeholder="Buscar..." value={search} onChange={(e) => setSearch(e.target.value)} />
 			</form>
-			<Gallery images={IMAGES} hashtag="natureza" />
+			<Gallery images={searchResults.map(item => item.image)} hashtag="natureza" />
 			<div className="cards-container">
-				{CARDS.map((card, idx) => <NewsCard title={card.title} text={card.text} key={idx} />)}
+				{searchResults.map((result, idx) => <NewsCard title={result.title} text={result.text} key={idx} />)}
 			</div>
 			<Footer />
 		</div>
