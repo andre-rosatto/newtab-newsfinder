@@ -8,7 +8,12 @@
 
 .Navbar h1 {
 	font-size: 35px;
-	margin-top: 0;
+	margin: 0;
+}
+
+.Navbar ul {
+	margin: 0;
+	padding: 0;
 }
 
 .Navbar li {
@@ -26,6 +31,7 @@
 	width: 170px;
 	padding: 15px 0;
 	text-align: center;
+	box-shadow: 0 3px 6px #5538EE29;
 }
 
 .Navbar li a.about {
@@ -33,7 +39,7 @@
 }
 
 .Navbar li a.about::before {
-	content: url('https://placehold.co/13x13');
+	content: url('../assets/icon-info-circle.svg');
 	margin-right: 15px;
 }
 
@@ -42,6 +48,6 @@
 }
 
 .Navbar li a.login::before {
-	content: url('https://placehold.co/13x13');
+	content: url('../assets/icon-user-alt.svg');
 	margin-right: 15px;
 }

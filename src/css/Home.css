@@ -8,9 +8,7 @@
 }
 
 .Home header {
-	background-image: url('https://placehold.co/1920x788');
-	background-size: cover;
-	background-repeat: no-repeat;
+	background: url('../assets/hero-bg.jpg') no-repeat top right;
 	display: flex;
 	flex-direction: column;
 	padding: 40px 64px;
@@ -24,15 +22,20 @@
 
 .Home header .text-container {
 	margin-left: 76px;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
 .Home header h2 {
 	font-size: 82px;
-	margin-top: 165px;
-	margin-bottom: 28px;
+	margin: 0;
 }
 
 .Home header p {
+	margin-top: 28px;
+	margin-bottom: 0;
 	font-size: 31px;
 }
 
@@ -44,21 +47,23 @@
 
 .Home form {
 	border-radius: 100px;
-	width: 1000px;
-	padding: 30px 60px;
+	width: 50%;
+	padding: 15px 60px;
 	box-shadow: 8px 14px 30px #5538EE29;
 	display: flex;
 	align-items: center;
-	margin-top: -75px;
+	margin-top: -60px;
+	margin-bottom: 185px;
 	background-color: white;
 	gap: 40px;
 }
 
 .Home form button {
-	background: url('https://placehold.co/50x50');
+	background: url('../assets/icon-search.svg');
 	background-position: center;
 	background-repeat: no-repeat;
 	width: 50px;
+	min-width: 50px;
 	height: 50px;
 	border: none;
 	cursor: pointer;
@@ -83,16 +88,11 @@
 	opacity: 1;
 }
 
-.Home .gallery p {
-	color: #3634F7;
-	font-size: 32px;
-	font-weight: bold;
-}
-
 .Home .cards-container {
 	display: grid;
 	grid-template-columns: auto auto;
-	gap: 77px;
+	gap: 60px 77px;
 	padding: 0 186px;
+	margin-top: 125px;
 	margin-bottom: 183px;
 }

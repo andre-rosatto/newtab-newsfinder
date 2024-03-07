@@ -1,0 +1,75 @@
+.Gallery {
+	display: flex;
+	flex-direction: column;
+
+	width: 1720px;
+}
+
+.Gallery p {
+	color: #3634F7;
+	font-size: 32px;
+	font-weight: bold;
+	margin: 0;
+}
+
+.Gallery .carrousel {
+	overflow-x: hidden;
+	margin-top: 114px;
+	padding: 0 30px;
+	position: relative;
+}
+
+.Gallery .carrousel ul {
+	display: flex;
+	gap: 45px;
+}
+
+.Gallery .carrousel li {
+	list-style: none;
+	width: 287px;
+	height: 287px;
+	flex-shrink: 0;
+	overflow: hidden;
+	position: relative;
+	border-radius: 21px;
+	box-shadow: 0 9px 27px #5538EE29;
+}
+
+.Gallery .carrousel p {
+	position: absolute;
+	bottom: 20px;
+	left: 20px;
+	text-align: left;
+	color: white;
+	font-size: 17px;
+}
+
+.Gallery .carrousel p span {
+	display: block;
+	font-size: 21px;
+}
+
+.Gallery button {
+	position: absolute;
+	width: 64px;
+	height: 64px;
+	background-color: white;
+	border: none;
+	border-radius: 64px;
+	box-shadow: 0 6px 13px #5538EE42;
+	top: calc(50% - (64px / 2));
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 50%;
+	cursor: pointer;
+}
+
+.Gallery button.previous {
+	background-image: url('../assets/icon-arrow-left.svg');
+	left: calc(64px / 2);
+}
+
+.Gallery button.next {
+	background-image: url('../assets/icon-arrow-right.svg');
+	right: 0;
+}
