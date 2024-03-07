@@ -29,6 +29,11 @@
 	cursor: pointer;
 }
 
+.Home form button:disabled {
+	cursor: default;
+	opacity: 0.5;
+}
+
 .Home form input {
 	font-size: 50px;
 	border: none;
@@ -41,4 +46,17 @@
 .Home form input::placeholder {
 	color: #8D9DA232;
 	opacity: 1;
+}
+
+.Home .gallery p {
+	color: #3634F7;
+	font-size: 32px;
+	font-weight: bold;
+}
+
+.Home .cards-container {
+	display: grid;
+	grid-template-columns: auto auto;
+	gap: 77px;
+	padding: 0 186px;
 }

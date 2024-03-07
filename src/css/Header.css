@@ -3,14 +3,24 @@
 	background-size: cover;
 	background-repeat: no-repeat;
 	display: flex;
+	flex-direction: column;
 	padding: 40px 64px;
 	height: 788px;
 	text-align: left;
 	color: white;
+	width: 100%;
+	max-width: 1920px;
+	box-sizing: border-box;
+}
+
+.Header nav {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
 }
 
 .Header .text-container {
-	flex: 1;
+	margin-left: 76px;
 }
 
 .Header h1 {
@@ -20,17 +30,11 @@
 
 .Header h2 {
 	font-size: 82px;
-	margin-left: 76px;
 	margin-bottom: 28px;
 }
 
 .Header p {
 	font-size: 31px;
-	margin-left: 76px;
-}
-
-.Header nav {
-	flex: 1;
 }
 
 .Header nav ul {

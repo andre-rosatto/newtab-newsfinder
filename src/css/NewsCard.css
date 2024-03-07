@@ -1,0 +1,25 @@
+.NewsCard {
+	display: flex;
+	flex-direction: column;
+	border: 1px solid #5538EE24;
+	padding: 42px 50px;
+	box-shadow: 8px 5px 10px #5538EE14;
+}
+
+.NewsCard h2 {
+	font-size: 27px;
+	text-align: left;
+}
+
+.NewsCard p {
+	font-size: 19px;
+	text-align: left;
+}
+
+.NewsCard a {
+	font-size: 20px;
+	font-weight: bold;
+	color: #3634F7;
+	text-decoration: none;
+	text-align: right;
+}
