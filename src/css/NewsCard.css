@@ -9,11 +9,14 @@
 .NewsCard h2 {
 	font-size: 27px;
 	text-align: left;
+	margin: 0;
 }
 
 .NewsCard p {
 	font-size: 19px;
 	text-align: left;
+	margin-top: 5px;
+	margin-bottom: 17px;
 }
 
 .NewsCard a {

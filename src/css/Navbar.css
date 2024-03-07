@@ -1,0 +1,47 @@
+.Navbar {
+	display: flex;
+	color: white;
+	width: 100%;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.Navbar h1 {
+	font-size: 35px;
+	margin-top: 0;
+}
+
+.Navbar li {
+	list-style: none;
+}
+
+.Navbar li a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+	font-size: 17px;
+	color: white;
+	border-radius: 50px;
+	width: 170px;
+	padding: 15px 0;
+	text-align: center;
+}
+
+.Navbar li a.about {
+	background-color: #D842BD;
+}
+
+.Navbar li a.about::before {
+	content: url('https://placehold.co/13x13');
+	margin-right: 15px;
+}
+
+.Navbar li a.login {
+	background-color: #3633F7;
+}
+
+.Navbar li a.login::before {
+	content: url('https://placehold.co/13x13');
+	margin-right: 15px;
+}

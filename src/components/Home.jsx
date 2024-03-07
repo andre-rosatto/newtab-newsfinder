@@ -2,7 +2,7 @@ import '../css/Home.css';
 
 import { useState } from 'react';
 import Footer from './Footer';
-import Header from './Header';
+import Navbar from './Navbar';
 import NewsCard from './NewsCard';
 
 const CARDS = [
@@ -23,12 +23,13 @@ export default function Home() {
 
 	return (
 		<div className="Home">
-			<Header
-				logButton={true}
-			>
-				<h2>Encontre notícias<br />de maneira fácil</h2>
-				<p>Digite o que deseja no campo de buscas e<br />confira os resultados</p>
-			</Header>
+			<header>
+				<Navbar loggedIn={false} />
+				<div className="text-container">
+					<h2>Encontre notícias<br />de maneira fácil</h2>
+					<p>Digite o que deseja no campo de buscas e<br />confira os resultados</p>
+				</div>
+			</header>
 			<form>
 				<button disabled={!search.trim()}></button>
 				<input type="text" placeholder="Buscar..." value={search} onChange={(e) => setSearch(e.target.value)} />

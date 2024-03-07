@@ -7,6 +7,41 @@
 	font-family: Rubik, Arial, Helvetica, sans-serif;
 }
 
+.Home header {
+	background-image: url('https://placehold.co/1920x788');
+	background-size: cover;
+	background-repeat: no-repeat;
+	display: flex;
+	flex-direction: column;
+	padding: 40px 64px;
+	height: 788px;
+	text-align: left;
+	color: white;
+	width: 100%;
+	max-width: 1920px;
+	box-sizing: border-box;
+}
+
+.Home header .text-container {
+	margin-left: 76px;
+}
+
+.Home header h2 {
+	font-size: 82px;
+	margin-top: 165px;
+	margin-bottom: 28px;
+}
+
+.Home header p {
+	font-size: 31px;
+}
+
+.Home header nav ul {
+	display: flex;
+	gap: 35px;
+	justify-content: flex-end;
+}
+
 .Home form {
 	border-radius: 100px;
 	width: 1000px;
@@ -59,4 +94,5 @@
 	grid-template-columns: auto auto;
 	gap: 77px;
 	padding: 0 186px;
+	margin-bottom: 183px;
 }
