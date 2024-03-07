@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import "../css/login.css";
 
 const LoginForm = () => {
     const [username, setUsername] = useState('');
@@ -27,7 +28,7 @@ const LoginForm = () => {
 
 return (
     <div>
-      <h2>Formulário de Login</h2>
+      <h2>Login</h2>
       {error && <p>{error}</p>}
       <form onSubmit={handleSubmit}>
         <div>
