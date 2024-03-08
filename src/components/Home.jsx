@@ -87,7 +87,7 @@ export default function Home() {
 				<button disabled={!search.trim()}></button>
 				<input type="text" placeholder="Buscar..." value={search} onChange={(e) => setSearch(e.target.value)} />
 			</form>
-			{/* <Gallery images={searchResults.map(item => item.image)} hashtag="natureza" /> */}
+			{searchResults.length > 0 && <Gallery images={searchResults.map(item => item.image)} hashtag="natureza" />}
 			{searchResults.length > 0 && <div className="cards-container">
 				{searchResults.map((result, idx) => <NewsCard title={result.title} text={result.text} key={idx} />)}
 			</div>}

@@ -12,45 +12,41 @@
 	font-weight: bold;
 	margin: 0;
 	text-align: center;
+	margin-bottom: 114px;
 }
 
-.Gallery .carrousel {
-	overflow-x: hidden;
-	margin-top: 114px;
+.Gallery .carousel-wrapper {
 	position: relative;
+	padding: 0 32px;
 }
 
-.Gallery .carrousel ul {
-	display: flex;
-	gap: 45px;
-}
-
-.Gallery .carrousel li {
-	list-style: none;
+.Gallery div.carousel-item {
 	width: 287px;
 	height: 287px;
-	flex-shrink: 0;
-	overflow: hidden;
 	position: relative;
+	overflow: hidden;
 	border-radius: 21px;
-	box-shadow: 0 9px 27px #5538EE29;
 }
 
-.Gallery .carrousel p {
+.Gallery div.carousel-item p {
 	position: absolute;
-	bottom: 20px;
+	bottom: 21px;
 	left: 20px;
-	text-align: left;
 	color: white;
+	margin: 0;
 	font-size: 17px;
+	text-align: left;
+	font-weight: normal;
 }
 
-.Gallery .carrousel p span {
+.Gallery div.carousel-item p span {
 	display: block;
 	font-size: 21px;
+	font-weight: 500;
 }
 
-.Gallery button {
+.Gallery .alice-carousel__prev-btn-item,
+.Gallery .alice-carousel__next-btn-item {
 	position: absolute;
 	width: 64px;
 	height: 64px;
@@ -58,20 +54,36 @@
 	border: none;
 	border-radius: 64px;
 	box-shadow: 0 6px 13px #5538EE42;
-	top: calc(50% - (64px / 2));
+	top: 110px;
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: 50%;
 	cursor: pointer;
 }
 
-.Gallery button.previous {
+.Gallery .alice-carousel__prev-btn-item {
 	background-image: url('../assets/icon-arrow-left.svg');
+	left: -32px;
 }
 
-.Gallery button.next {
+.Gallery .alice-carousel__next-btn-item {
 	background-image: url('../assets/icon-arrow-right.svg');
-	right: 0;
+	right: -32px;
+}
+
+.Gallery .alice-carousel__prev-btn-item span,
+.Gallery .alice-carousel__next-btn-item span {
+	display: none;
+}
+
+.Gallery .alice-carousel__dots-item {
+	width: 15px;
+	height: 15px;
+	background-color: #CBCBCB;
+}
+
+.Gallery .alice-carousel__dots-item.__active {
+	background-color: #3634F7;
 }
 
 @media screen and (max-width: 750px) {
@@ -92,29 +104,34 @@
 		padding: 0 20px;
 	}
 
-	.Gallery .carrousel ul {
-		padding: 0;
-		display: flex;
-		gap: 14px;
-		margin: 0;
+	.Gallery .carousel-wrapper {
+		position: relative;
+		padding: 0 0 0 25px;
 	}
 
-	.Gallery .carrousel li {
-		width: 159px;
-		height: 228px;
+	.Gallery div.carousel-item {
+		width: 160px;
+		height: 227px;
+		position: relative;
+		overflow: hidden;
 	}
 
-	.Gallery .carrousel p {
-		font-size: 13px;
+	.Gallery div.carousel-item p {
 		bottom: 29px;
 		left: 15px;
+		font-size: 13px;
 	}
 
-	.Gallery .carrousel p span {
+	.Gallery div.carousel-item p span {
 		font-size: 14px;
 	}
 
-	.Gallery button {
+	.Gallery .alice-carousel__prev-btn-item,
+	.Gallery .alice-carousel__next-btn-item {
+		display: none;
+	}
+
+	.Gallery .alice-carousel__dots-item {
 		display: none;
 	}
 }
