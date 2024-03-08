@@ -20,7 +20,7 @@ export default function Gallery({ images, hashtag }) {
 		1430: { items: 4.15 },
 		1550: { items: 4.5 },
 		1700: { items: 4.875 }
-	}
+	};
 
 	return (
 		<div className="Gallery">
