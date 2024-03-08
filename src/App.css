@@ -1,1 +1,8 @@
-.App {}
+@font-face {
+	font-family: Rubik;
+	src: url('./assets/rubik.ttf');
+}
+
+.App {
+	font-family: Rubik, Arial, Helvetica, sans-serif;
+}
