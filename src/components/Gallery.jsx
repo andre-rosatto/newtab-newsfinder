@@ -5,21 +5,13 @@ import '../css/Gallery.css';
 export default function Gallery({ images, hashtag }) {
 	const responsive = {
 		0: { items: 1 },
-		100: { items: 1.5 },
-		360: { items: 2.15 },
-		450: { items: 2.5 },
-		525: { items: 3 },
-		600: { items: 3.5 },
-		690: { items: 4 },
+		350: { items: 2 },
+		510: { items: 3 },
+		670: { items: 4 },
 		751: { items: 2 },
-		800: { items: 2.25 },
-		890: { items: 2.5 },
-		980: { items: 2.75 },
-		1130: { items: 3.25 },
-		1300: { items: 3.75 },
-		1430: { items: 4.15 },
-		1550: { items: 4.5 },
-		1700: { items: 4.875 }
+		1050: { items: 3 },
+		1360: { items: 4 },
+		1680: { items: 5 },
 	};
 
 	return (
