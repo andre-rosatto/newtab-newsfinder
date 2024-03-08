@@ -4,6 +4,7 @@
 	align-items: center;
 	max-width: 1920px;
 	margin: auto;
+	min-height: 100vh;
 }
 
 .Home header {
@@ -47,7 +48,7 @@
 	box-shadow: 8px 14px 30px #5538EE29;
 	display: flex;
 	align-items: center;
-	margin-bottom: 150px;
+	/* margin-bottom: 150px; */
 	background-color: white;
 	gap: 40px;
 	transform: translateY(-50%);
@@ -146,7 +147,6 @@
 		padding: 5px 30px;
 		gap: 14px;
 		transform: translateY(-175px);
-		margin-bottom: 0;
 	}
 
 	.Home form button {

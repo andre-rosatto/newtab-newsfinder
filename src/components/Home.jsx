@@ -6,7 +6,7 @@ import Navbar from './Navbar';
 import NewsCard from './NewsCard';
 import Gallery from './Gallery';
 
-const searchResults = [
+const SEARCH_RESULTS = [
 	{
 		title: 'Título',
 		text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat...',
@@ -71,6 +71,8 @@ const searchResults = [
 
 export default function Home() {
 	const [search, setSearch] = useState('');
+	const [searchResults, setSearchResults] = useState(SEARCH_RESULTS);
+	// const [searchResults, setSearchResults] = useState([]);
 
 	return (
 		<div className="Home">
@@ -85,10 +87,10 @@ export default function Home() {
 				<button disabled={!search.trim()}></button>
 				<input type="text" placeholder="Buscar..." value={search} onChange={(e) => setSearch(e.target.value)} />
 			</form>
-			<Gallery images={searchResults.map(item => item.image)} hashtag="natureza" />
-			<div className="cards-container">
+			{/* <Gallery images={searchResults.map(item => item.image)} hashtag="natureza" /> */}
+			{searchResults.length > 0 && <div className="cards-container">
 				{searchResults.map((result, idx) => <NewsCard title={result.title} text={result.text} key={idx} />)}
-			</div>
+			</div>}
 			<Footer />
 		</div>
 	);
