@@ -71,8 +71,7 @@ const SEARCH_RESULTS = [
 
 export default function Home() {
 	const [search, setSearch] = useState('');
-	const [searchResults, setSearchResults] = useState(SEARCH_RESULTS);
-	// const [searchResults, setSearchResults] = useState([]);
+	const [searchResults] = useState(SEARCH_RESULTS);
 
 	return (
 		<div className="Home">
