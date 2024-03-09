@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import "../css/login.css";
+import '../css/login.css';
 
 const LoginForm = () => {
     const [username, setUsername] = useState('');
@@ -27,35 +27,39 @@ const LoginForm = () => {
     };
 
 return (
-    <div>
+    <div className="main">
       <div className="loginHeader">
         <h2>NewsFinder</h2>
-        <button>Home</button>
+        <button className="buttonHome">HOME</button>
       </div>
       <div className="loginBox">
-          <h2>Login</h2>
+        <div className="intoLogin">
           {error && <p>{error}</p>}
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className="userPassword">
+            <h2 className="titleLoginBox">Login</h2>
             <div>
-              <label htmlFor="username">Nome de Usuário:</label>
+              {/* <label htmlFor="username">Nome de Usuário:</label> */}
               <input
                 type="text"
                 id="username"
+                placeholder="Username"
                 value={username}
                 onChange={handleUsernameChange}
               />
             </div>
             <div>
-              <label htmlFor="password">Senha:</label>
+              {/* <label htmlFor="password">Senha:</label> */}
               <input
                 type="password"
                 id="password"
+                placeholder="Password"
                 value={password}
                 onChange={handlePasswordChange}
               />
             </div>
-            <button type="submit">Login</button>
+            <button type="submit">ACESSAR</button>
           </form>
+          </div>
       </div>
   </div>
   );

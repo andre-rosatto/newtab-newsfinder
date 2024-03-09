@@ -4,18 +4,32 @@
     font-family: Rubik;
 }
 
-.loginWrapper {
-    display: flex;
+.main {
+    background-image: url('../utils/images/login-bg.jpg');
     width: 100%;
     height: 1081px;
-    justify-content: center;
 }
 
 .loginHeader {
     display: flex;
     width: 100%;
     height: 49px;
-    justify-content: space-between;
+    justify-content: space-around;
+    margin-bottom: 151px;
+    gap: 50%;
+    align-items: center;
+    padding-top: 36px;
+}
+
+.buttonHome {
+    background-color: #D842BD;
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: bold;
+    width: 170px;
+    height: 100%;
+    border-radius: 15%;
+    border: none;
 }
 
 .loginBox {
@@ -28,4 +42,28 @@
     width: 30%;
     border: 1px solid;
     border-radius: 16px;
+    background-color: #ffffff;
+}
+
+.intoLogin {
+    width: 100% !important;
+    display: flex;
+    justify-content: center;
+}
+
+.userPassword {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px
+}
+
+.userPassword input, .userPassword button{
+    width: 100%;
+}
+
+.titleLoginBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
