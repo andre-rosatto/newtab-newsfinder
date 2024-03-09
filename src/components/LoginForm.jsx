@@ -30,32 +30,37 @@ return (
     <div className="main">
       <div className="loginHeader">
         <h2>NewsFinder</h2>
-        <button className="buttonHome">HOME</button>
+        <button className="buttonHome">
+          <span className="dot">.</span> 
+          <span className="home">HOME</span>
+        </button>
       </div>
       <div className="loginBox">
         <div className="intoLogin">
           {error && <p>{error}</p>}
           <form onSubmit={handleSubmit} className="userPassword">
             <h2 className="titleLoginBox">Login</h2>
-            <div>
-              {/* <label htmlFor="username">Nome de Usuário:</label> */}
-              <input
-                type="text"
-                id="username"
-                placeholder="Username"
-                value={username}
-                onChange={handleUsernameChange}
-              />
-            </div>
-            <div>
-              {/* <label htmlFor="password">Senha:</label> */}
-              <input
-                type="password"
-                id="password"
-                placeholder="Password"
-                value={password}
-                onChange={handlePasswordChange}
-              />
+            <div className="formItens">
+              <div>
+                {/* <label htmlFor="username">Nome de Usuário:</label> */}
+                <input
+                  type="text"
+                  id="username"
+                  placeholder="Username"
+                  value={username}
+                  onChange={handleUsernameChange}
+                />
+              </div>
+              <div>
+                {/* <label htmlFor="password">Senha:</label> */}
+                <input
+                  type="password"
+                  id="password"
+                  placeholder="Password"
+                  value={password}
+                  onChange={handlePasswordChange}
+                />
+              </div>
             </div>
             <button type="submit">ACESSAR</button>
           </form>
