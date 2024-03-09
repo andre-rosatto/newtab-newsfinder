@@ -16,12 +16,10 @@ const LoginForm = () => {
   
     const handleSubmit = (event) => {
       event.preventDefault();
-      // lógica para validar os campos do formulário
+      
       if (username === 'usuario' && password === 'senha') {
-        // Login bem-sucedido
         alert('Login bem-sucedido!');
       } else {
-        // Login falhou
         setError('Nome de usuário ou senha incorretos');
       }
     };
@@ -37,12 +35,10 @@ return (
       </div>
       <div className="loginBox">
         <div className="intoLogin">
-          {error && <p>{error}</p>}
           <form onSubmit={handleSubmit} className="userPassword">
             <h2 className="titleLoginBox">Login</h2>
             <div className="formItens">
               <div>
-                {/* <label htmlFor="username">Nome de Usuário:</label> */}
                 <input
                   type="text"
                   id="username"
@@ -52,7 +48,6 @@ return (
                 />
               </div>
               <div>
-                {/* <label htmlFor="password">Senha:</label> */}
                 <input
                   type="password"
                   id="password"
@@ -60,6 +55,7 @@ return (
                   value={password}
                   onChange={handlePasswordChange}
                 />
+                {error && <p className="errorMessage">{error}</p>}
               </div>
             </div>
             <div className="btnFormWrapper">

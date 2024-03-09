@@ -120,6 +120,13 @@
     font-size: 19px;
 }
 
+.errorMessage {
+    color: red;
+    font-family: Rubik;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
 /* Estilizando o placeholder*/
 ::-webkit-input-placeholder { /* WebKit (Chrome, Safari, etc.) */
 font-size: 17px; 
