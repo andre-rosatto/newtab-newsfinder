@@ -1,7 +1,9 @@
 import React, {useState} from "react";
+import { useNavigate } from 'react-router-dom';
 import '../css/login.css';
 
 const LoginForm = () => {
+    const navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -16,9 +18,9 @@ const LoginForm = () => {
   
     const handleSubmit = (event) => {
       event.preventDefault();
-      
+
       if (username === 'usuario' && password === 'senha') {
-        alert('Login bem-sucedido!');
+        navigate('/search');
       } else {
         setError('Nome de usuário ou senha incorretos');
       }
