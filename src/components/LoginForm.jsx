@@ -19,7 +19,7 @@ const LoginForm = () => {
     const handleSubmit = (event) => {
       event.preventDefault();
 
-      if (username === 'usuario' && password === 'senha') {
+      if (username === 'usuario' && password === 'Senha') {
         navigate('/search');
       } else {
         setError('Nome de usuário ou senha incorretos');

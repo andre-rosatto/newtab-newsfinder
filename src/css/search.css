@@ -1,0 +1,47 @@
+
+.searchHeader {
+    display: flex;
+    width: 100%;
+    height: 49px;
+    margin-bottom: 65px;
+    align-items: center;
+    padding-top: 36px;
+    justify-content: space-around;
+    gap: 50%;
+}
+
+.btnHeader {
+    gap: 35px;
+    display: flex;
+    height: 100%;
+}
+
+.buttonSair {
+    background-color: #3633F7;
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: bold;
+    width: 170px;
+    height: 100%;
+    border-radius: 25px;
+    border: none;
+}
+
+.titleBuscas {
+    margin-left: 98px;
+    font-family: Rubik;
+    font-size: 40px;
+    color: #ffffff;
+}
+
+.tableBuscas {
+    margin-left: 98px;
+    width: 85%;
+    height: 760px;
+    background-color: #ffffff;
+}
+
+.tableBuscas th {
+    color: #3633F7;
+    font-size: 19px;
+}
