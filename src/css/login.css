@@ -21,6 +21,11 @@
     padding-top: 36px;
 }
 
+.newsFinder {
+    color: #ffffff;
+    font-size: 35px;
+}
+
 .dot {
     position: relative;
     top: -10px;
@@ -71,7 +76,7 @@
     height: 100%;
 }
 
-.userPassword input, .userPassword button{
+.userPassword input {
     width: 100%;
 }
 
@@ -98,6 +103,20 @@
     border-right: none;
     border-left: none;
     border-bottom: 1px solid gray;
+}
+
+.btnFormWrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.buttonForm {
+    width: 50%;
+    height: 56px;
+    border-radius: 25px;
+    background-color: #3633F7;
+    color: #ffffff;
+    font-size: 19px;
 }
 
 /* Estilizando o placeholder*/

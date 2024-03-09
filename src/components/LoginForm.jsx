@@ -29,7 +29,7 @@ const LoginForm = () => {
 return (
     <div className="main">
       <div className="loginHeader">
-        <h2>NewsFinder</h2>
+        <h2 className="newsFinder">newsFinder</h2>
         <button className="buttonHome">
           <span className="dot">.</span> 
           <span className="home">HOME</span>
@@ -62,7 +62,9 @@ return (
                 />
               </div>
             </div>
-            <button type="submit">ACESSAR</button>
+            <div className="btnFormWrapper">
+            <button type="submit" className="buttonForm">ACESSAR</button>
+            </div>
           </form>
           </div>
       </div>
