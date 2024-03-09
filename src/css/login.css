@@ -113,6 +113,7 @@
 .buttonForm {
     width: 50%;
     height: 56px;
+    border: none;
     border-radius: 25px;
     background-color: #3633F7;
     color: #ffffff;
@@ -121,17 +122,66 @@
 
 /* Estilizando o placeholder*/
 ::-webkit-input-placeholder { /* WebKit (Chrome, Safari, etc.) */
-    font-size: 17px; 
-    color: #292929;
- }
- 
- :-moz-placeholder { /* Firefox */
-    font-size: 17px; 
-    color: #292929;
- }
- 
- :-ms-input-placeholder { /* Microsoft Edge */
-    font-size: 17px; 
-    color: #292929;
- }
+font-size: 17px; 
+color: #292929;
+}
+
+:-moz-placeholder { /* Firefox */
+font-size: 17px; 
+color: #292929;
+}
+
+:-ms-input-placeholder { /* Microsoft Edge */
+font-size: 17px; 
+color: #292929;
+}  
+
+@media screen and (max-width: 1020px) {
+    .loginHeader {
+        height: 30px;
+        margin-bottom: 155px;
+        align-items: center;
+        gap: 50%;
+    }
+
+    .newsFinder {
+        font-size: 19px;
+    }
+
+    .buttonHome {
+        font-size: 10px;
+        width: 106px;
+    }
+
+    .loginBox {
+        height: 460px;
+        width: 80%;
+        border: none;
+        border-radius: 16px;
+        background-color: #ffffff;
+    }
+
+    .titleLoginBox {
+        margin-top: 62px;
+        font-size: 35px;
+    }
+
+    .formItens {
+        padding-top: 45px;
+        gap: 60px;
+        padding-bottom: 68px;
+    }
+
+    .buttonForm {
+        width: 90%;
+        height: 58px;
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .loginHeader {
+        gap: 20%;
+    }
+}
  
