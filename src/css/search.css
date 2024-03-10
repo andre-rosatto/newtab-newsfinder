@@ -41,7 +41,28 @@
     background-color: #ffffff;
 }
 
-.tableBuscas th {
+.tableHeader {
     color: #3633F7;
-    font-size: 19px;
+    height: 106px;
+    text-align: left;
+    font-size: 25px;
+}
+
+.nameBuscas {
+    padding-left: 50px;
+}
+
+.tableBody {
+    font-size: 24px;
+
+}
+
+.colBuscas {
+    color: #292929;
+    width: 70%;
+    padding-left: 50px;
+}
+
+.colDate, .colTime {
+    color: #D842BD;
 }

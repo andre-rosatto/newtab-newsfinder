@@ -28,19 +28,19 @@ const Search = () => {
             <div>
                 <h2 className="titleBuscas">Buscas Realizadas</h2>
                 <table className="tableBuscas">
-                    <thead>
+                    <thead className="tableHeader">
                         <tr>
-                            <th>Buscas</th>
+                            <th className="nameBuscas">Buscas</th>
                             <th>Data</th>
                             <th>Hora</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className="tableBody">
                         {logins.map((login, index) => (
                         <tr key={index}>
-                            <td>{login.username}</td>
-                            <td>{new Date(login.loginTime).toLocaleDateString()}</td>
-                            <td>{new Date(login.loginTime).toLocaleTimeString()}</td>
+                            <td className="colBuscas">{login.username}</td>
+                            <td className="colDate">{new Date(login.loginTime).toLocaleDateString()}</td>
+                            <td className="colTime">{new Date(login.loginTime).toLocaleTimeString()}</td>
                         </tr>
                         ))}
                     </tbody>
