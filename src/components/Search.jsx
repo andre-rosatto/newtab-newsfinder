@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import '../css/search.css';
 import '../css/login.css';
-import { AddLoginsDetails } from './LoginsDetails';
+import { GetLoginsDetails } from './LoginsDetails';
 
 const Search = () => {
-    const [logins, setLogins] = useState([]);
+    const logins = GetLoginsDetails();
+    console.log("Valor da variável logins:", logins);
+    // const [logins, setLogins] = useState([]);
 
     return (
         <div className="main">
@@ -37,8 +39,8 @@ const Search = () => {
                         {logins.map((login, index) => (
                         <tr key={index}>
                             <td>{login.username}</td>
-                            <td>{login.loginTime.toLocaleDateString()}</td>
-                            <td>{login.loginTime.toLocaleTimeString()}</td>
+                            <td>{new Date(login.loginTime).toLocaleDateString()}</td>
+                            <td>{new Date(login.loginTime).toLocaleTimeString()}</td>
                         </tr>
                         ))}
                     </tbody>

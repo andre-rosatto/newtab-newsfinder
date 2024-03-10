@@ -20,15 +20,20 @@ const LoginForm = () => {
   
     const handleSubmit = (event) => {
       event.preventDefault();
+      console.log("evento de submit acionado")
 
       if (username === 'usuario' && password === 'Senha') {
+        console.log("Login bem-sucedido. Redirecionando para a página de busca.");
         navigate('/search');
         const loginTime = new Date();
         AddLoginsDetails(setLogins, username, loginTime);
       } else {
         setError('Nome de usuário ou senha incorretos');
+        console.log("Erro: Nome de usuário ou senha incorretos.");
       }
     };
+
+    console.log("Valor da variável logins:", logins);
 
 return (
     <div className="main">
