@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import { useNavigate } from 'react-router-dom';
+import { AddLoginsDetails } from '../components/LoginsDetails';
 import '../css/login.css';
 
 const LoginForm = () => {
@@ -7,6 +8,7 @@ const LoginForm = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const [logins, setLogins] = useState([]);
   
     const handleUsernameChange = (event) => {
       setUsername(event.target.value);
@@ -21,6 +23,8 @@ const LoginForm = () => {
 
       if (username === 'usuario' && password === 'Senha') {
         navigate('/search');
+        const loginTime = new Date();
+        AddLoginsDetails(setLogins, username, loginTime);
       } else {
         setError('Nome de usuário ou senha incorretos');
       }
