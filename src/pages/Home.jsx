@@ -80,7 +80,7 @@ const Home = () => {
 			{/* banner */}
 			<header>
 				<Navbar loggedIn={false} />
-				<div className="text-container">
+				<div className="textContainer">
 					<h2>Encontre notícias<br />de maneira fácil</h2>
 					<p>Digite o que deseja no campo de buscas e<br />confira os resultados</p>
 				</div>
@@ -95,7 +95,7 @@ const Home = () => {
 
 			{/* exibe a galeria de fotos e notícias se houver resultados de busca */}
 			{searchResults.results?.length > 0 && <Gallery items={searchResults.results} hashtag={searchResults.hashtag} />}
-			{searchResults.results?.length > 0 && <div className="cards-container">
+			{searchResults.results?.length > 0 && <div className="cardsContainer">
 				{searchResults.results.map((result, idx) => <NewsCard title={result.title} text={result.text} key={idx} />)}
 			</div>}
 
