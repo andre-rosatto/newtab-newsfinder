@@ -1,6 +1,6 @@
 import '../css/NewsCard.css';
 
-export default function NewsCard({ title, text }) {
+const NewsCard = ({ title, text }) => {
 	return (
 		<div className="NewsCard">
 			<h2>{title}</h2>
@@ -9,3 +9,5 @@ export default function NewsCard({ title, text }) {
 		</div>
 	);
 }
+
+export default NewsCard;

@@ -77,3 +77,9 @@
 		margin-right: 8px;
 	}
 }
+
+@media screen and (max-width: 370px) {
+	.Navbar li a {
+		width: 90px;
+	}
+}

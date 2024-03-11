@@ -1,80 +1,83 @@
 import '../css/Home.css';
 
 import { useState } from 'react';
-import Footer from './Footer';
-import Navbar from './Navbar';
-import NewsCard from './NewsCard';
-import Gallery from './Gallery';
+import Footer from '../components/Footer';
+import Navbar from '../components/Navbar';
+import NewsCard from '../components/NewsCard';
+import Gallery from '../components/Gallery';
 
-const SEARCH_RESULTS = [
-	{
+// mock de resultados de busca para teste da galeria e dos cards de notícias
+const SEARCH_RESULTS = {
+	hashtag: 'natureza',
+	results: [{
 		title: 'Título',
 		text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat...',
 		image: 'https://placehold.co/400x400/333/888',
-		hashtag: 'natureza'
+		author: 'NomeDoPortal',
 	},
 	{
 		title: 'Título',
 		text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat...',
 		image: 'https://placehold.co/500x400/333/888',
-		hashtag: 'natureza'
+		author: 'NomeDoPortal',
 	},
 	{
 		title: 'Título',
 		text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat...',
 		image: 'https://placehold.co/400x500/333/888',
-		hashtag: 'natureza'
+		author: 'NomeDoPortal',
 	},
 	{
 		title: 'Título',
 		text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat...',
 		image: 'https://placehold.co/600x400/333/888',
-		hashtag: 'natureza'
+		author: 'NomeDoPortal',
 	},
 	{
 		title: 'Título',
 		text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat...',
 		image: 'https://placehold.co/400x600/333/888',
-		hashtag: 'natureza'
+		author: 'NomeDoPortal',
 	},
 	{
 		title: 'Título',
 		text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat...',
 		image: 'https://placehold.co/800x500/333/888',
-		hashtag: 'natureza'
+		author: 'NomeDoPortal',
 	},
 	{
 		title: 'Título',
 		text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat...',
 		image: 'https://placehold.co/500x800/333/888',
-		hashtag: 'natureza'
+		author: 'NomeDoPortal',
 	},
 	{
 		title: 'Título',
 		text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat...',
 		image: 'https://placehold.co/765x334/333/888',
-		hashtag: 'natureza'
+		author: 'NomeDoPortal',
 	},
 	{
 		title: 'Título',
 		text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat...',
 		image: 'https://placehold.co/445x982/333/888',
-		hashtag: 'natureza'
+		author: 'NomeDoPortal',
 	},
 	{
 		title: 'Título',
 		text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat...',
 		image: 'https://placehold.co/1000x2345/333/888',
-		hashtag: 'natureza'
-	},
-];
+		author: 'NomeDoPortal',
+	}]
+};
 
-export default function Home() {
-	const [search, setSearch] = useState('');
+const Home = () => {
+	const [searchText, setSearchText] = useState('');
 	const [searchResults] = useState(SEARCH_RESULTS);
 
 	return (
 		<div className="Home">
+			{/* banner */}
 			<header>
 				<Navbar loggedIn={false} />
 				<div className="text-container">
@@ -82,15 +85,24 @@ export default function Home() {
 					<p>Digite o que deseja no campo de buscas e<br />confira os resultados</p>
 				</div>
 			</header>
+
+			{/* barra de pesquisa */}
 			<form>
-				<button disabled={!search.trim()}></button>
-				<input type="text" placeholder="Buscar..." value={search} onChange={(e) => setSearch(e.target.value)} />
+				{/* desativa busca se a busca estiver vazia */}
+				<button disabled={!searchText.trim()}></button>
+				<input type="text" placeholder="Buscar..." value={searchText} onChange={(e) => setSearchText(e.target.value)} />
 			</form>
-			{searchResults.length > 0 && <Gallery images={searchResults.map(item => item.image)} hashtag="natureza" />}
-			{searchResults.length > 0 && <div className="cards-container">
-				{searchResults.map((result, idx) => <NewsCard title={result.title} text={result.text} key={idx} />)}
+
+			{/* exibe a galeria de fotos e notícias se houver resultados de busca */}
+			{searchResults.results?.length > 0 && <Gallery items={searchResults.results} hashtag={searchResults.hashtag} />}
+			{searchResults.results?.length > 0 && <div className="cards-container">
+				{searchResults.results.map((result, idx) => <NewsCard title={result.title} text={result.text} key={idx} />)}
 			</div>}
+
+			{/* rodapé */}
 			<Footer />
 		</div>
 	);
 }
+
+export default Home;

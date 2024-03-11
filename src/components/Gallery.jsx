@@ -2,7 +2,8 @@ import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import '../css/Gallery.css';
 
-export default function Gallery({ images, hashtag }) {
+const Gallery = ({ items, hashtag }) => {
+	// configuração de responsividade do carrossel de imagens
 	const responsive = {
 		0: { items: 1 },
 		350: { items: 2 },
@@ -16,13 +17,13 @@ export default function Gallery({ images, hashtag }) {
 
 	return (
 		<div className="Gallery">
-			<p>Exibindo os {images.length} resultados mais recentes para #{hashtag}</p>
+			<p>Exibindo os {items.length} resultados mais recentes para #{hashtag}</p>
 			<div className="carousel-wrapper">
 				<AliceCarousel
 					mouseTracking
-					items={images.map((image, idx) =>
+					items={items.map((item, idx) =>
 						<div className="carousel-item" data-value={idx}>
-							<img src={image} alt={`imagem ${idx}`} />
+							<img src={item.image} alt={`imagem ${idx}`} />
 							<p>Postado por:
 								<span>NomeDoPortal</span>
 							</p>
@@ -35,3 +36,5 @@ export default function Gallery({ images, hashtag }) {
 		</div>
 	);
 }
+
+export default Gallery;

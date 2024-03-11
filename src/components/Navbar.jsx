@@ -1,6 +1,7 @@
 import '../css/Navbar.css';
 
-export default function Navbar({ loggedIn }) {
+const Navbar = ({ loggedIn }) => {
+	// loggedIn -> esconde o botão LOGIN se prop estiver presente ou true
 
 	return (
 		<nav className="Navbar">
@@ -16,3 +17,5 @@ export default function Navbar({ loggedIn }) {
 		</nav>
 	);
 }
+
+export default Navbar;
