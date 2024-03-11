@@ -18,11 +18,11 @@ const Gallery = ({ items, hashtag }) => {
 	return (
 		<div className="Gallery">
 			<p>Exibindo os {items.length} resultados mais recentes para #{hashtag}</p>
-			<div className="carousel-wrapper">
+			<div className="carouselWrapper">
 				<AliceCarousel
 					mouseTracking
 					items={items.map((item, idx) =>
-						<div className="carousel-item" data-value={idx}>
+						<div className="carouselItem" data-value={idx}>
 							<img src={item.image} alt={`imagem ${idx}`} />
 							<p>Postado por:
 								<span>NomeDoPortal</span>

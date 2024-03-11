@@ -15,12 +15,12 @@
 	margin-bottom: 114px;
 }
 
-.Gallery .carousel-wrapper {
+.Gallery .carouselWrapper {
 	position: relative;
 	padding: 0 32px;
 }
 
-.Gallery div.carousel-item {
+.Gallery div.carouselItem {
 	width: 287px;
 	height: 287px;
 	position: relative;
@@ -28,7 +28,7 @@
 	border-radius: 21px;
 }
 
-.Gallery div.carousel-item p {
+.Gallery div.carouselItem p {
 	position: absolute;
 	bottom: 21px;
 	left: 20px;
@@ -39,7 +39,7 @@
 	font-weight: normal;
 }
 
-.Gallery div.carousel-item p span {
+.Gallery div.carouselItem p span {
 	display: block;
 	font-size: 21px;
 	font-weight: 500;
@@ -104,25 +104,25 @@
 		padding: 0 20px;
 	}
 
-	.Gallery .carousel-wrapper {
+	.Gallery .carouselWrapper {
 		position: relative;
 		padding: 0 0 0 25px;
 	}
 
-	.Gallery div.carousel-item {
+	.Gallery div.carouselItem {
 		width: 160px;
 		height: 227px;
 		position: relative;
 		overflow: hidden;
 	}
 
-	.Gallery div.carousel-item p {
+	.Gallery div.carouselItem p {
 		bottom: 29px;
 		left: 15px;
 		font-size: 13px;
 	}
 
-	.Gallery div.carousel-item p span {
+	.Gallery div.carouselItem p span {
 		font-size: 14px;
 	}
 
