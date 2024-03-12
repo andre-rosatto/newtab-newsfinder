@@ -82,15 +82,6 @@
 	opacity: 1;
 }
 
-.Home .cardsContainer {
-	display: grid;
-	grid-template-columns: auto auto;
-	gap: 60px 77px;
-	padding: 0 186px;
-	margin-top: 125px;
-	margin-bottom: 183px;
-}
-
 @media screen and (max-width: 1400px) {
 	.Home header {
 		background-position: center top;
@@ -148,15 +139,6 @@
 
 	.Home form input {
 		font-size: 17px;
-	}
-
-	.Home .cardsContainer {
-		display: flex;
-		flex-direction: column;
-		gap: 32px;
-		padding: 0 20px;
-		margin-top: 50px;
-		margin-bottom: 56px;
 	}
 }
 

@@ -3,12 +3,11 @@ import '../css/Home.css';
 import { useState } from 'react';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
-import NewsCard from '../components/NewsCard';
-import Gallery from '../components/Gallery';
+import SearchResults from '../components/SearchResults';
 
 // mock de resultados de busca para teste da galeria e dos cards de notícias
 const SEARCH_RESULTS = {
-	hashtag: 'natureza',
+	query: 'natureza',
 	results: [{
 		title: 'Título',
 		text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat...',
@@ -70,6 +69,10 @@ const SEARCH_RESULTS = {
 		author: 'NomeDoPortal',
 	}]
 };
+// const SEARCH_RESULTS = {
+// 	query: 'natureza',
+// 	results: []
+// };
 
 const Home = () => {
 	const [searchText, setSearchText] = useState('');
@@ -94,10 +97,11 @@ const Home = () => {
 			</form>
 
 			{/* exibe a galeria de fotos e notícias se houver resultados de busca */}
-			{searchResults.results?.length > 0 && <Gallery items={searchResults.results} hashtag={searchResults.hashtag} />}
+			{/* {searchResults.results?.length > 0 && <Gallery items={searchResults.results} hashtag={searchResults.hashtag} />}
 			{searchResults.results?.length > 0 && <div className="cardsContainer">
 				{searchResults.results.map((result, idx) => <NewsCard title={result.title} text={result.text} key={idx} />)}
-			</div>}
+			</div>} */}
+			{searchResults?.query && <SearchResults query={searchResults.query} results={searchResults.results} />}
 
 			{/* rodapé */}
 			<Footer />
