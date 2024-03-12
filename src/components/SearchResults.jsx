@@ -17,7 +17,7 @@ const SearchResults = ({ query, results }) => {
 	};
 
 	return (
-		<div className="searchResults">
+		<section className="searchResults">
 			{/* título dos resultados */}
 			{results.length > 0 && <p className="searchResultsTitle">Exibindo os {results.length} resultados mais recentes para {query}</p>}
 			{results.length === 0 && <p className="searchResultsTitle">Nenhum resultado encontrado para {query}</p>}
@@ -50,7 +50,7 @@ const SearchResults = ({ query, results }) => {
 				</div>)}
 			</div>
 			}
-		</div>
+		</section>
 	);
 }
 
