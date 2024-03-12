@@ -2,8 +2,8 @@
 .searchResults {
 	display: flex;
 	flex-direction: column;
-	width: 90%;
-	max-width: 1700px;
+	width: 100%;
+	max-width: 1920px;
 	margin-top: 150px;
 }
 
@@ -19,7 +19,7 @@
 /* carrossel de imagens */
 .searchResults .carouselWrapper {
 	position: relative;
-	padding: 0 32px;
+	padding: 0 157px;
 }
 
 .searchResults div.carouselItem {
@@ -60,8 +60,9 @@
 	top: 110px;
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: 50%;
+	background-size: 21px;
 	cursor: pointer;
+	padding: 0;
 }
 
 .searchResults .alice-carousel__prev-btn-item {
@@ -89,13 +90,13 @@
 	background-color: #3634F7;
 }
 
-/* notícias */
+/* lista de notícias */
 .searchResults .newsCardWrapper {
 	display: grid;
 	grid-template-columns: auto auto;
 	gap: 60px 77px;
 	padding: 0 186px;
-	margin-top: 125px;
+	margin-top: 93px;
 	margin-bottom: 183px;
 }
 
@@ -103,7 +104,7 @@
 	display: flex;
 	flex-direction: column;
 	border: 1px solid #5538EE24;
-	padding: 42px 50px;
+	padding: 42px 53px;
 	box-shadow: 8px 5px 10px #5538EE14;
 }
 
@@ -120,12 +121,15 @@
 	margin-bottom: 17px;
 }
 
+.searchResults .newsCard div {
+	text-align: right;
+}
+
 .searchResults .newsCard a {
 	font-size: 20px;
 	font-weight: bold;
 	color: #3634F7;
 	text-decoration: none;
-	text-align: right;
 }
 
 @media screen and (max-width: 750px) {
@@ -140,6 +144,7 @@
 
 	.searchResults .searchResultsTitle {
 		font-size: 22px;
+		margin-bottom: 32px;
 	}
 
 	/* carrossel de imagens */
@@ -187,7 +192,7 @@
 		flex-direction: column;
 		gap: 32px;
 		padding: 0 20px;
-		margin-top: 50px;
+		margin-top: 0;
 		margin-bottom: 56px;
 	}
 

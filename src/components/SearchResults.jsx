@@ -9,10 +9,11 @@ const SearchResults = ({ query, results }) => {
 		350: { items: 2 },
 		510: { items: 3 },
 		670: { items: 4 },
-		751: { items: 2 },
-		1050: { items: 3 },
-		1360: { items: 4 },
-		1680: { items: 5 },
+		751: { item: 1 },
+		890: { items: 2 },
+		1180: { items: 3 },
+		1470: { items: 4 },
+		1760: { items: 5 },
 	};
 
 	return (
@@ -43,7 +44,9 @@ const SearchResults = ({ query, results }) => {
 				{results.map((result, idx) => <div className="newsCard" key={idx}>
 					<h2>{result.title}</h2>
 					<p>{result.text}</p>
-					<a href="">Ver mais</a>
+					<div>
+						<a href="">Ver mais</a>
+					</div>
 				</div>)}
 			</div>
 			}

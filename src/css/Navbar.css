@@ -65,6 +65,7 @@
 
 	.navbar li a {
 		font-size: 10px;
+		font-weight: bold;
 		width: 106px;
 		padding: 9px 0;
 		text-align: center;
