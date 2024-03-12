@@ -11,9 +11,10 @@
 	color: #3634F7;
 	font-size: 32px;
 	font-weight: bold;
-	margin: 0;
 	text-align: center;
+	margin-top: 0;
 	margin-bottom: 114px;
+	padding: 0 157px;
 }
 
 /* carrossel de imagens */
@@ -145,6 +146,7 @@
 	.searchResults .searchResultsTitle {
 		font-size: 22px;
 		margin-bottom: 32px;
+		padding: 0 25px;
 	}
 
 	/* carrossel de imagens */
