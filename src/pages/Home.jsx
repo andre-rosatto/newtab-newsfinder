@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import SearchResults from '../components/SearchResults';
 
-// mock de resultados de busca para teste da galeria e dos cards de notícias
+// mock de resultados de busca para teste
 const SEARCH_RESULTS = {
 	query: 'natureza',
 	results: [{
@@ -69,10 +69,6 @@ const SEARCH_RESULTS = {
 		author: 'NomeDoPortal',
 	}]
 };
-// const SEARCH_RESULTS = {
-// 	query: 'natureza',
-// 	results: []
-// };
 
 const Home = () => {
 	const [searchText, setSearchText] = useState('');
@@ -96,11 +92,7 @@ const Home = () => {
 				<input type="text" placeholder="Buscar..." value={searchText} onChange={(e) => setSearchText(e.target.value)} />
 			</form>
 
-			{/* exibe a galeria de fotos e notícias se houver resultados de busca */}
-			{/* {searchResults.results?.length > 0 && <Gallery items={searchResults.results} hashtag={searchResults.hashtag} />}
-			{searchResults.results?.length > 0 && <div className="cardsContainer">
-				{searchResults.results.map((result, idx) => <NewsCard title={result.title} text={result.text} key={idx} />)}
-			</div>} */}
+			{/* resultados da busca */}
 			{searchResults?.query && <SearchResults query={searchResults.query} results={searchResults.results} />}
 
 			{/* rodapé */}
