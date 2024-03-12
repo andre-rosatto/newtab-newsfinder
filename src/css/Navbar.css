@@ -1,4 +1,4 @@
-.Navbar {
+.navbar {
 	display: flex;
 	color: white;
 	width: 100%;
@@ -6,23 +6,23 @@
 	align-items: center;
 }
 
-.Navbar h1 {
+.navbar h1 {
 	font-size: 35px;
 	margin: 0;
 }
 
-.Navbar ul {
+.navbar ul {
 	display: flex;
 	margin: 0;
 	padding: 0;
 	gap: 35px;
 }
 
-.Navbar li {
+.navbar li {
 	list-style: none;
 }
 
-.Navbar li a {
+.navbar li a {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -36,34 +36,34 @@
 	box-shadow: 0 3px 6px #5538EE29;
 }
 
-.Navbar li a.about {
+.navbar li a.about {
 	background-color: #D842BD;
 }
 
-.Navbar li a.about::before {
+.navbar li a.about::before {
 	content: url('../assets/icon-info-circle.svg');
 	margin-right: 15px;
 }
 
-.Navbar li a.login {
+.navbar li a.login {
 	background-color: #3633F7;
 }
 
-.Navbar li a.login::before {
+.navbar li a.login::before {
 	content: url('../assets/icon-user-alt.svg');
 	margin-right: 15px;
 }
 
 @media screen and (max-width: 750px) {
-	.Navbar h1 {
+	.navbar h1 {
 		font-size: 19px;
 	}
 
-	.Navbar ul {
+	.navbar ul {
 		gap: 9px;
 	}
 
-	.Navbar li a {
+	.navbar li a {
 		font-size: 10px;
 		width: 106px;
 		padding: 9px 0;
@@ -71,15 +71,15 @@
 		box-shadow: 0 3px 6px #5538EE29;
 	}
 
-	.Navbar li a.about::before,
-	.Navbar li a.login::before {
+	.navbar li a.about::before,
+	.navbar li a.login::before {
 		content: url('../assets/icon-info-circle.svg');
 		margin-right: 8px;
 	}
 }
 
 @media screen and (max-width: 370px) {
-	.Navbar li a {
+	.navbar li a {
 		width: 90px;
 	}
 }

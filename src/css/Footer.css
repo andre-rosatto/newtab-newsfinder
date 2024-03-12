@@ -1,4 +1,4 @@
-.Footer {
+.footer {
 	background-color: #D842BD;
 	height: 203px;
 	display: flex;
@@ -11,7 +11,7 @@
 }
 
 @media screen and (max-width: 750px) {
-	.Footer {
+	.footer {
 		height: 68px;
 		font-size: 12px;
 	}

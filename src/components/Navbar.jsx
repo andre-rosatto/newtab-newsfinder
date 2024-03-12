@@ -1,10 +1,10 @@
 import '../css/Navbar.css';
 
 const Navbar = ({ loggedIn }) => {
-	// loggedIn -> esconde o botão LOGIN se prop estiver presente ou true
+	// loggedIn -> esconde o botão LOGIN se prop estiver presente ou for true
 
 	return (
-		<nav className="Navbar">
+		<nav className="navbar">
 			<h1>newsFinder</h1>
 			<ul>
 				<li>

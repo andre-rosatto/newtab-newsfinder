@@ -1,4 +1,4 @@
-.Home {
+.home {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -6,7 +6,7 @@
 	min-height: 100vh;
 }
 
-.Home header {
+.home header {
 	background-image: url('../assets/hero-bg.jpg');
 	background-position: center right;
 	background-repeat: no-repeat;
@@ -21,7 +21,7 @@
 	box-sizing: border-box;
 }
 
-.Home header .textContainer {
+.home header .textContainer {
 	margin-left: 76px;
 	height: 100%;
 	display: flex;
@@ -29,18 +29,18 @@
 	justify-content: center;
 }
 
-.Home header .textContainer h2 {
+.home header .textContainer h2 {
 	font-size: 82px;
 	margin: 0;
 }
 
-.Home header .textContainer p {
+.home header .textContainer p {
 	margin-top: 28px;
 	margin-bottom: 0;
 	font-size: 31px;
 }
 
-.Home form {
+.home form {
 	border-radius: 100px;
 	width: 50%;
 	padding: 15px 60px;
@@ -52,7 +52,7 @@
 	transform: translateY(-50%);
 }
 
-.Home form button {
+.home form button {
 	background: url('../assets/icon-search.svg');
 	background-position: center;
 	background-repeat: no-repeat;
@@ -63,12 +63,12 @@
 	cursor: pointer;
 }
 
-.Home form button:disabled {
+.home form button:disabled {
 	cursor: default;
 	opacity: 0.5;
 }
 
-.Home form input {
+.home form input {
 	font-size: 50px;
 	border: none;
 	width: 100%;
@@ -77,81 +77,81 @@
 	outline: none;
 }
 
-.Home form input::placeholder {
+.home form input::placeholder {
 	color: #8D9DA232;
 	opacity: 1;
 }
 
 @media screen and (max-width: 1400px) {
-	.Home header {
+	.home header {
 		background-position: center top;
 		height: 600px;
 	}
 
-	.Home header .textContainer {
+	.home header .textContainer {
 		margin-left: 10px;
 	}
 
-	.Home header .textContainer h2 {
+	.home header .textContainer h2 {
 		font-size: 42px;
 	}
 
-	.Home header .textContainer p {
+	.home header .textContainer p {
 		font-size: 20px;
 	}
 }
 
 @media screen and (max-width: 750px) {
-	.Home header {
+	.home header {
 		background: url('../assets/hero-bg-mobile.jpg');
 		background-size: cover;
 		height: 520px;
 		padding: 33px 16px;
 	}
 
-	.Home header .textContainer {
+	.home header .textContainer {
 		margin-left: 15px;
 		justify-content: flex-start;
 		margin-top: 71px;
 	}
 
-	.Home header .textContainer h2 {
+	.home header .textContainer h2 {
 		font-size: 36px;
 	}
 
-	.Home header .textContainer p {
+	.home header .textContainer p {
 		font-size: 16px;
 	}
 
-	.Home form {
+	.home form {
 		width: 75%;
 		padding: 5px 30px;
 		gap: 14px;
 		transform: translateY(-175px);
 	}
 
-	.Home form button {
+	.home form button {
 		width: 15px;
 		min-width: 15px;
 		height: 15px;
 		background-size: 15px;
 	}
 
-	.Home form input {
+	.home form input {
 		font-size: 17px;
 	}
 }
 
 @media screen and (max-width: 370px) {
-	.Home header .textContainer {
+	.home header .textContainer {
 		margin-left: 0;
 	}
 
-	.Home header .textContainer h2 {
+	.home header .textContainer h2 {
 		font-size: 32px;
 	}
 
-	.Home header .textContainer p {
+	.home header .textContainer p {
 		font-size: 14px;
 	}
 }

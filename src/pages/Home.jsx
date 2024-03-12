@@ -75,7 +75,7 @@ const Home = () => {
 	const [searchResults] = useState(SEARCH_RESULTS);
 
 	return (
-		<div className="Home">
+		<div className="home">
 			{/* banner */}
 			<header>
 				<Navbar loggedIn={false} />
