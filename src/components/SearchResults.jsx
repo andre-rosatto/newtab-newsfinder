@@ -2,6 +2,8 @@ import '../css/SearchResults.css';
 import Carousel from "./Carousel";
 import { useEffect, useState } from "react";
 
+const DESKTOP_THRESHOLD = 750;
+
 const SearchResults = ({ query, results }) => {
 	const [itemWidth, setItemWidth] = useState(0);
 	const [gap, setGap] = useState(0);
@@ -9,8 +11,8 @@ const SearchResults = ({ query, results }) => {
 
 	useEffect(() => {
 		const handleResize = () => {
-			setItemWidth(window.innerWidth >= 750 ? 287 : 160);
-			setGap(window.innerWidth >= 750 ? 45 : 14);
+			setItemWidth(window.innerWidth >= DESKTOP_THRESHOLD ? 287 : 160);
+			setGap(window.innerWidth >= DESKTOP_THRESHOLD ? 45 : 14);
 		}
 		window.addEventListener('resize', handleResize);
 		handleResize();
@@ -40,9 +42,9 @@ const SearchResults = ({ query, results }) => {
 							</p>
 						</div>
 					)}
-					previousButton={window.innerWidth >= 750 ? <button className="previousButton"></button> : null}
-					nextButton={window.innerWidth >= 750 ? <button className="nextButton"></button> : null}
-					pip={window.innerWidth >= 750 ? <div className="pip"></div> : null}
+					previousButton={window.innerWidth >= DESKTOP_THRESHOLD ? <button className="previousButton"></button> : null}
+					nextButton={window.innerWidth >= DESKTOP_THRESHOLD ? <button className="nextButton"></button> : null}
+					pip={window.innerWidth >= DESKTOP_THRESHOLD ? <div className="pip"></div> : null}
 				/>
 			</div>}
 
