@@ -74,6 +74,14 @@ const Home = () => {
 	const [searchText, setSearchText] = useState('');
 	const [searchResults] = useState(SEARCH_RESULTS);
 
+	const handleSearchChange = (e) => {
+		setSearchText(e.target.value.trimStart().substring(0, 20));
+	}
+
+	const handleSearchSubmit = (e) => {
+		e.preventDefault();
+	}
+
 	return (
 		<div className="home">
 			{/* banner */}
@@ -86,10 +94,10 @@ const Home = () => {
 			</header>
 
 			{/* barra de pesquisa */}
-			<form>
+			<form onSubmit={handleSearchSubmit}>
 				{/* desativa busca se a busca estiver vazia */}
 				<button disabled={!searchText.trim()}></button>
-				<input type="text" placeholder="Buscar..." value={searchText} onChange={(e) => setSearchText(e.target.value)} />
+				<input type="text" placeholder="Buscar..." value={searchText} onChange={handleSearchChange} />
 			</form>
 
 			{/* resultados da busca */}
