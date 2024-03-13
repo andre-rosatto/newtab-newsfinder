@@ -6,15 +6,20 @@ const SearchResults = ({ query, results }) => {
 	const [itemWidth, setItemWidth] = useState(0);
 	const [gap, setGap] = useState(0);
 
-	const handleResize = () => {
-		setItemWidth(window.innerWidth >= 750 ? 287 : 160);
-		setGap(window.innerWidth >= 750 ? 45 : 14);
-	}
 
 	useEffect(() => {
+		const handleResize = () => {
+			setItemWidth(window.innerWidth >= 750 ? 287 : 160);
+			setGap(window.innerWidth >= 750 ? 45 : 14);
+		}
 		window.addEventListener('resize', handleResize);
 		handleResize();
+		return () => window.removeEventListener('resize', handleResize);
 	}, []);
+
+	const handleImageClick = (idx) => {
+		console.log('image click', idx);
+	}
 
 	return (
 		<section className="searchResults">
@@ -28,7 +33,7 @@ const SearchResults = ({ query, results }) => {
 					gap={gap}
 					itemWidth={itemWidth}
 					items={results.map((result, idx) =>
-						<div className="carouselItem" data-value={idx}>
+						<div className="carouselItem" onClick={() => handleImageClick(idx)}>
 							<img src={result.image} alt={`imagem ${idx}`} />
 							<p>Postado por:
 								<span>{result.author}</span>
