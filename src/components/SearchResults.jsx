@@ -1,20 +1,20 @@
-import AliceCarousel from "react-alice-carousel";
-import 'react-alice-carousel/lib/alice-carousel.css';
 import '../css/SearchResults.css';
+import Carousel from "./Carousel";
+import { useEffect, useState } from "react";
 
 const SearchResults = ({ query, results }) => {
-	// configuração de responsividade do AliceCarousel
-	const responsive = {
-		0: { items: 1 },
-		350: { items: 2 },
-		510: { items: 3 },
-		670: { items: 4 },
-		751: { item: 1 },
-		890: { items: 2 },
-		1180: { items: 3 },
-		1470: { items: 4 },
-		1760: { items: 5 },
-	};
+	const [itemWidth, setItemWidth] = useState(0);
+	const [gap, setGap] = useState(0);
+
+	const handleResize = () => {
+		setItemWidth(window.innerWidth >= 750 ? 287 : 160);
+		setGap(window.innerWidth >= 750 ? 45 : 14);
+	}
+
+	useEffect(() => {
+		window.addEventListener('resize', handleResize);
+		handleResize();
+	}, []);
 
 	return (
 		<section className="searchResults">
@@ -24,8 +24,9 @@ const SearchResults = ({ query, results }) => {
 
 			{/* carrossel de imagens */}
 			{results.length > 0 && <div className="carouselWrapper">
-				<AliceCarousel
-					mouseTracking
+				<Carousel
+					gap={gap}
+					itemWidth={itemWidth}
 					items={results.map((result, idx) =>
 						<div className="carouselItem" data-value={idx}>
 							<img src={result.image} alt={`imagem ${idx}`} />
@@ -34,8 +35,9 @@ const SearchResults = ({ query, results }) => {
 							</p>
 						</div>
 					)}
-					responsive={responsive}
-					controlsStrategy='responsive'
+					previousButton={window.innerWidth >= 750 ? <button className="previousButton"></button> : null}
+					nextButton={window.innerWidth >= 750 ? <button className="nextButton"></button> : null}
+					pip={window.innerWidth >= 750 ? <div className="pip"></div> : null}
 				/>
 			</div>}
 
@@ -45,7 +47,7 @@ const SearchResults = ({ query, results }) => {
 					<h2>{result.title}</h2>
 					<p>{result.text}</p>
 					<div>
-						<a href="">Ver mais</a>
+						<a href="/">Ver mais</a>
 					</div>
 				</div>)}
 			</div>
