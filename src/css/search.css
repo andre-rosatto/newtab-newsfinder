@@ -4,21 +4,26 @@
     height: 1081px;
 }
 
-.searchHeader {
+.navbar {
     display: flex;
     width: 100%;
     height: 49px;
-    margin-bottom: 65px;
-    align-items: center;
     padding-top: 36px;
-    justify-content: space-around;
-    gap: 50%;
+    margin-bottom: 65px;
+}
+
+.titleNews {
+    width: 50%;
+    margin-left: 8%;
 }
 
 .btnHeader {
     gap: 35px;
     display: flex;
+    width: 50%;
+    justify-content: flex-end;
     height: 100%;
+    margin-right: 7%;
 }
 
 .buttonSair {
@@ -33,7 +38,7 @@
 }
 
 .titleBuscas {
-    margin-left: 98px;
+    margin-left: 8%;
     margin-bottom: 40px;
     font-family: Rubik;
     font-size: 40px;
@@ -41,7 +46,7 @@
 }
 
 .tableBuscas {
-    margin-left: 98px;
+    margin-left: 8%;
     width: 85%;
     height: 760px;
     background-color: #ffffff;
@@ -88,16 +93,15 @@
         width: 100%;
         height: 1016px;
     }
-    .searchHeader {
-        height: 30px;
-        margin-bottom: 49px;
-        align-items: center;
-        padding-top: 33px;
-        gap: 1px;
+    
+    .titleNews {
+        width: 50%;
+        margin-left: 1%;
     }
 
     .btnHeader {
         gap: 14px;
+        margin-right: 2%;
     }
 
     .buttonSair {
