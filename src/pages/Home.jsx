@@ -96,8 +96,14 @@ const Home = () => {
 			{/* barra de pesquisa */}
 			<form onSubmit={handleSearchSubmit}>
 				{/* desativa busca se a busca estiver vazia */}
-				<button disabled={!searchText.trim()}></button>
-				<input type="text" placeholder="Buscar..." value={searchText} onChange={handleSearchChange} />
+				<button disabled={!searchText}></button>
+				<input
+					type="text"
+					placeholder="Buscar..."
+					value={searchText}
+					onChange={handleSearchChange}
+					autoFocus
+				/>
 			</form>
 
 			{/* resultados da busca */}
