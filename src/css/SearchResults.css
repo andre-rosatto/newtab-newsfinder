@@ -30,6 +30,8 @@
 	position: relative;
 	overflow: hidden;
 	border-radius: 21px;
+	background-size: cover;
+	background-position: center;
 }
 
 .searchResults div.carouselItem p {
@@ -43,10 +45,12 @@
 	font-weight: normal;
 }
 
-.searchResults div.carouselItem p span {
+.searchResults div.carouselItem p a {
 	display: block;
 	font-size: 21px;
 	font-weight: 500;
+	text-decoration: none;
+	color: white;
 }
 
 /* carrossel de imagens */
@@ -70,7 +74,6 @@
 .searchResults .Carousel__button-disabled {
 	opacity: 0.5;
 	cursor: default;
-	pointer-events: none;
 }
 
 .searchResults .previousButton {
@@ -179,7 +182,7 @@
 		font-size: 13px;
 	}
 
-	.searchResults div.carouselItem p span {
+	.searchResults div.carouselItem p a {
 		font-size: 14px;
 	}
 

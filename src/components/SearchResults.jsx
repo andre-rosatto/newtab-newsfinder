@@ -8,7 +8,6 @@ const SearchResults = ({ query, results }) => {
 	const [itemWidth, setItemWidth] = useState(0);
 	const [gap, setGap] = useState(0);
 
-
 	useEffect(() => {
 		const handleResize = () => {
 			setItemWidth(window.innerWidth >= DESKTOP_THRESHOLD ? 287 : 160);
@@ -35,10 +34,21 @@ const SearchResults = ({ query, results }) => {
 					gap={gap}
 					itemWidth={itemWidth}
 					items={results.map((result, idx) =>
-						<div className="carouselItem" onClick={() => handleImageClick(idx)}>
-							<img src={result.image} alt={`imagem ${idx}`} />
+						<div
+							className="carouselItem"
+							onClick={() => handleImageClick(idx)}
+							style={{ backgroundImage: `url("${result.image}")` }}
+						>
+							{/* <img src={result.image} alt={`imagem ${idx}`} /> */}
 							<p>Postado por:
-								<span>{result.author}</span>
+								<a
+									href={result.source.url}
+									rel="noreferrer"
+									target="_blank"
+									onClick={e => e.stopPropagation()}
+								>
+									{result.source.name}
+								</a>
 							</p>
 						</div>
 					)}
@@ -52,9 +62,15 @@ const SearchResults = ({ query, results }) => {
 			{results.length > 0 && <div className="newsCardWrapper">
 				{results.map((result, idx) => <div className="newsCard" key={idx}>
 					<h2>{result.title}</h2>
-					<p>{result.text}</p>
+					<p>{result.content}</p>
 					<div>
-						<a href="/">Ver mais</a>
+						<a
+							href={result.url}
+							rel="noreferrer"
+							target="_blank"
+						>
+							Ver mais
+						</a>
 					</div>
 				</div>)}
 			</div>

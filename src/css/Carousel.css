@@ -1,6 +1,7 @@
 .Carousel {
 	height: 100%;
 	position: relative;
+	overscroll-behavior-x: none;
 }
 
 .Carousel__wrapper {
