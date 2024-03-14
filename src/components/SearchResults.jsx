@@ -39,7 +39,6 @@ const SearchResults = ({ query, results }) => {
 							onClick={() => handleImageClick(idx)}
 							style={{ backgroundImage: `url("${result.image}")` }}
 						>
-							{/* <img src={result.image} alt={`imagem ${idx}`} /> */}
 							<p>Postado por:
 								<a
 									href={result.source.url}
