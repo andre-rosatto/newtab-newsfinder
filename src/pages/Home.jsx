@@ -5,70 +5,6 @@ import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import SearchResults from '../components/SearchResults';
 
-// mock de resultados de busca para teste
-// const SEARCH_RESULTS = {
-// 	results: [{
-// 		title: 'Título',
-// 		text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat...',
-// 		image: 'https://placehold.co/400x400/333/888',
-// 		author: 'NomeDoPortal',
-// 	},
-// 	{
-// 		title: 'Título',
-// 		text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat...',
-// 		image: 'https://placehold.co/500x400/333/888',
-// 		author: 'NomeDoPortal',
-// 	},
-// 	{
-// 		title: 'Título',
-// 		text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat...',
-// 		image: 'https://placehold.co/400x500/333/888',
-// 		author: 'NomeDoPortal',
-// 	},
-// 	{
-// 		title: 'Título',
-// 		text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat...',
-// 		image: 'https://placehold.co/600x400/333/888',
-// 		author: 'NomeDoPortal',
-// 	},
-// 	{
-// 		title: 'Título',
-// 		text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat...',
-// 		image: 'https://placehold.co/400x600/333/888',
-// 		author: 'NomeDoPortal',
-// 	},
-// 	{
-// 		title: 'Título',
-// 		text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat...',
-// 		image: 'https://placehold.co/800x500/333/888',
-// 		author: 'NomeDoPortal',
-// 	},
-// 	{
-// 		title: 'Título',
-// 		text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat...',
-// 		image: 'https://placehold.co/500x800/333/888',
-// 		author: 'NomeDoPortal',
-// 	},
-// 	{
-// 		title: 'Título',
-// 		text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat...',
-// 		image: 'https://placehold.co/765x334/333/888',
-// 		author: 'NomeDoPortal',
-// 	},
-// 	{
-// 		title: 'Título',
-// 		text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat...',
-// 		image: 'https://placehold.co/445x982/333/888',
-// 		author: 'NomeDoPortal',
-// 	},
-// 	{
-// 		title: 'Título',
-// 		text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat...',
-// 		image: 'https://placehold.co/1000x2345/333/888',
-// 		author: 'NomeDoPortal',
-// 	}]
-// };
-
 const SEARCH_API_URL = 'https://gnews.io/api/v4/search';
 const SEARCH_API_KEY = '9327490b8ff243c91b713513fc0e6c2b';
 
@@ -110,7 +46,7 @@ const Home = () => {
 			{/* barra de pesquisa */}
 			<form onSubmit={handleSearchSubmit}>
 				{/* desativa busca se a busca estiver vazia */}
-				<button disabled={!searchText}></button>
+				<button disabled={!searchText || searchText.trim().length < 2}></button>
 				<input
 					type="text"
 					placeholder="Buscar..."

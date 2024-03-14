@@ -5,7 +5,7 @@ const Navbar = ({ home, about, login, exit }) => {
 
 	return (
 		<nav className="navbar">
-			<h1>newsFinder</h1>
+			<h1><a href="/">newsFinder</a></h1>
 			<ul>
 				{home && <li>
 					<a className="navbarHome" href="/">HOME</a>
