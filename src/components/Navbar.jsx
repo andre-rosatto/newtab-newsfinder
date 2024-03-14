@@ -1,10 +1,23 @@
+import { useEffect, useState } from 'react';
 import '../css/Navbar.css';
 
 const Navbar = ({ home, about, login, exit }) => {
-	// props definem quais botões são exibidos
+	// home, about, login, exit -> definem quais botões são exibidos
+
+	// define se a navbar está fixa e com transparência
+	const [fixed, setFixed] = useState(false);
+
+	useEffect(() => {
+		//scroll acima de 250px define fixed = true
+		const handleScroll = () => {
+			setFixed(window.scrollY > 250);
+		};
+		window.addEventListener('scroll', handleScroll);
+		return () => window.removeEventListener('scroll', handleScroll);
+	}, []);
 
 	return (
-		<nav className="navbar">
+		<nav className={`navbar${fixed ? ' fixed' : ''}`}>
 			<h1><a href="/">newsFinder</a></h1>
 			<ul>
 				{home && <li>

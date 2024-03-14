@@ -4,6 +4,18 @@
 	width: 100%;
 	justify-content: space-between;
 	align-items: center;
+	position: absolute;
+	box-sizing: border-box;
+	z-index: 3;
+	padding: 40px 64px;
+	overflow: hidden;
+}
+
+.navbar.fixed {
+	position: fixed;
+	z-index: 1;
+	background-color: rgba(255, 255, 255, 0.5);
+	backdrop-filter: blur(15px);
 }
 
 .navbar h1 {
@@ -14,6 +26,10 @@
 .navbar h1 a {
 	text-decoration: none;
 	color: white;
+}
+
+.navbar.fixed h1 a {
+	color: #D842BD;
 }
 
 .navbar ul {
@@ -72,6 +88,10 @@
 }
 
 @media screen and (max-width: 750px) {
+	.navbar {
+		padding: 37px 16px;
+	}
+
 	.navbar h1 {
 		font-size: 19px;
 	}
