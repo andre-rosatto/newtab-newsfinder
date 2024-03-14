@@ -36,22 +36,34 @@
 	box-shadow: 0 3px 6px #5538EE29;
 }
 
-.navbar li a.about {
+.navbar li a.navbarHome,
+.navbar li a.navbarAbout {
 	background-color: #D842BD;
 }
 
-.navbar li a.about::before {
-	content: url('../assets/icon-info-circle.svg');
-	margin-right: 15px;
-}
-
-.navbar li a.login {
+.navbar li a.navbarLogin,
+.navbar li a.navbarExit {
 	background-color: #3633F7;
 }
 
-.navbar li a.login::before {
-	content: url('../assets/icon-user-alt.svg');
+.navbar li a::before {
 	margin-right: 15px;
+}
+
+.navbar li a.navbarHome::before {
+	content: url('../assets/icon-home.svg');
+}
+
+.navbar li a.navbarAbout::before {
+	content: url('../assets/icon-info-circle.svg');
+}
+
+.navbar li a.navbarLogin::before {
+	content: url('../assets/icon-user-alt.svg');
+}
+
+.navbar li a.navbarExit::before {
+	content: url('../assets/icon-power-off.svg');
 }
 
 @media screen and (max-width: 750px) {
@@ -72,9 +84,8 @@
 		box-shadow: 0 3px 6px #5538EE29;
 	}
 
-	.navbar li a.about::before,
-	.navbar li a.login::before {
-		content: url('../assets/icon-info-circle.svg');
+	.navbar li a::before,
+	.navbar li a::before {
 		margin-right: 8px;
 	}
 }

@@ -45,7 +45,7 @@ const SearchResults = ({ query, results }) => {
 					<h2>{result.title}</h2>
 					<p>{result.text}</p>
 					<div>
-						<a href="">Ver mais</a>
+						<a href="/">Ver mais</a>
 					</div>
 				</div>)}
 			</div>

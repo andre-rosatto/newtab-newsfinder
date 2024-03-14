@@ -78,7 +78,7 @@ const Home = () => {
 		<div className="home">
 			{/* banner */}
 			<header>
-				<Navbar loggedIn={false} />
+				<Navbar about login />
 				<div className="textContainer">
 					<h2>Encontre notícias<br />de maneira fácil</h2>
 					<p>Digite o que deseja no campo de buscas e<br />confira os resultados</p>
