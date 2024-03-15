@@ -1,0 +1,164 @@
+.main{
+    width: 90%;
+    display: flex;
+    margin: 120px auto 30px auto;
+    flex-wrap: wrap;
+    gap : 120px;
+}
+
+.description {
+    width: 45%;
+    max-width: 700px;
+    line-height: 30px;
+    font-size: 20px;
+    color : #292929;
+}
+
+.whoWeAre {
+    margin-top: 80px;
+    width: 100%;
+}
+
+.description h3 ,  .whoWeAre h3 {
+    color : #3634F7;
+    font-size: 30px;
+}
+
+.description h3 {
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+.whoWeAre h3 {
+    margin-bottom: 80px;
+}
+
+.ilustration {
+    width: 45%;
+}
+
+.ilustration img {
+    width: 100%;
+    max-width: 700px;
+}
+
+.teamBio {
+   display: flex;
+   gap : 50px;
+   color : #292929;
+}
+
+.members {
+    width: 300px;
+    height: 450px;
+    gap : 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.members p:nth-child(2) {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.members p {
+    text-align: center;
+}
+
+.members > img {
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    fill : #3634F7;
+}
+
+.socialMedia a > svg{
+    fill : #D842BD;
+    width: 25px;
+    height: 25px;
+    margin : 0px 8px;
+    cursor: pointer;
+}
+
+/****** RESPONSIVIDADE EM DISPOSITIVOS MENORES ******/
+@media(max-width : 1050px) {
+
+    .main {
+        align-items: center;
+        justify-content: center;
+        margin-top : 80px;
+        gap : 60px;
+    }
+
+    .description {
+        width: 100%;
+    }
+
+    .description h3 {
+        font-size: 20px;
+    }
+
+    .description p {
+        font-size: 15px;
+    }
+
+    .ilustration {
+        width: 100%;
+        text-align: center;
+    }
+
+    .ilustration img {
+        width: 80%;
+        max-width: 600px;
+    }
+
+    .whoWeAre {
+        margin-top : 40px;
+    }
+
+
+    .whoWeAre h3 {
+        margin-right: auto;
+        font-size: 20px;
+    }
+
+    .teamBio {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .members {
+        width: 250px;
+        height: 400px;
+    }
+
+    .members > svg {
+        width: 150px;
+        height: 150px;
+    }
+
+    .members p:nth-child(2) {
+        font-size: 22px;
+    }
+
+    .members p {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 1050px) and (max-width: 1350px) {
+    .main {
+        gap : 80px;
+    }
+
+    .description {
+        width: 40%;
+    }
+
+    .ilustration {
+        width: 50%;
+    }
+}
