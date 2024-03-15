@@ -41,7 +41,8 @@ export default class AirtableHandler {
 			}
 		}).then(res => res.json()).then(data => {
 			data.records.forEach(record =>
-				result.push({ id: record.id, search: record.fields.Busca, date: record.fields.Data }));
+				result.push({ id: record.id, search: record.fields.Busca, date: record.fields.Data })
+			);
 			onFetch(result);
 		});
 	}
