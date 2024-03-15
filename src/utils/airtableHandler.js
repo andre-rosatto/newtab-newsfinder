@@ -29,7 +29,7 @@ export default class AirtableHandler {
 	// getAll(onFetch)
 	//
 	// retorna array de objetos (filtrado por Squad=SQUAD) no formato {id:string, search:string, date:number}
-	// onFetch -> callback chamado quando o fetch terminar
+	// onFetch -> callback chamado quando o fetch resolve
 	// ex: Airtable.getAll(results => console.log(results));
 	static getAll(onFetch) {
 		const result = [];
