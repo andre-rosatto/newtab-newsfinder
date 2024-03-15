@@ -43,6 +43,7 @@
 	font-size: 17px;
 	text-align: left;
 	font-weight: normal;
+	text-shadow: 0 0 3px black, 0 0 3px black;
 }
 
 .searchResults div.carouselItem p a {
@@ -53,7 +54,6 @@
 	color: white;
 }
 
-/* carrossel de imagens */
 .searchResults .previousButton,
 .searchResults .nextButton {
 	position: absolute;

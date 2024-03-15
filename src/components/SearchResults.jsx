@@ -61,7 +61,7 @@ const SearchResults = ({ query, results }) => {
 			{results.length > 0 && <div className="newsCardWrapper">
 				{results.map((result, idx) => <div className="newsCard" key={idx}>
 					<h2>{result.title}</h2>
-					<p>{result.content}</p>
+					<p>{result.description}</p>
 					<div>
 						<a
 							href={result.url}
