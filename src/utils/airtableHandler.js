@@ -8,7 +8,7 @@ const AIRTABLE_TOKEN = 'patFWS9nyevnpN89P.981364c0cc345536e73139edfae790d9727211
 export default class AirtableHandler {
 	// post(search, date)
 	//
-	// cria um novo registro formato {"Squad"=SQUAD, "Busca"=search, "Data"=date}
+	// cria um novo registro no formato {"Squad"=SQUAD, "Busca"=search, "Data"=date}
 	static post(search, date) {
 		fetch(AIRTABLE_API, {
 			method: "POST",
