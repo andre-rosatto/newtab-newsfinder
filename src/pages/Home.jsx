@@ -153,10 +153,10 @@ const Home = () => {
 	const handleSearchSubmit = (e) => {
 		e.preventDefault();
 
-		/*
 		// post da busca no airtable
 		AirtableHandler.post(searchText, Date.now());
 
+		/*
 		// fetch na API de busca
 		setSearchQuery(null);
 		const abortController = new AbortController();
