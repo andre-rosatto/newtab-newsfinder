@@ -40,7 +40,8 @@ export default class AirtableHandler {
 				"Content-Type": "application/json"
 			}
 		}).then(res => res.json()).then(data => {
-			data.records.forEach(record => result.push({ id: record.id, search: record.fields.Busca, date: record.fields.Data }));
+			data.records.forEach(record =>
+				result.push({ id: record.id, search: record.fields.Busca, date: record.fields.Data }));
 			onFetch(result);
 		});
 	}
