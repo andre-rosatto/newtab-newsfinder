@@ -1,17 +1,13 @@
 import React from "react";
 import '../css/search.css';
-// import '../css/login.css';
 import { GetLoginsDetails } from './LoginsDetails';
 
 const Search = () => {
     const logins = GetLoginsDetails();
-    console.log("Valor da variável logins:", logins);
-    // const [logins, setLogins] = useState([]);
-
+ 
     return (
         <div className="main">
             <div className="navbar">
-                {/* <div className="searchHeader"></div> */}
                     <div className="titleNews">
                         <h2 className="newsFinder">newsFinder</h2>
                     </div>

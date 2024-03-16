@@ -15,16 +15,3 @@ export default function App() {
     </Router>
   );
 }
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-// import LoginForm from './components/LoginForm';
-
-	
-
-// export default function App() {
-// 	return (
-// 		<LoginForm />
-// 	);
-// }
-
-// ReactDOM.createRoot(document.getElementById('root')).render(<App />);

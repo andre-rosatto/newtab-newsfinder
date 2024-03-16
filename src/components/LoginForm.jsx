@@ -1,14 +1,15 @@
 import React, {useState} from "react";
 import { useNavigate } from 'react-router-dom';
-import { AddLoginsDetails } from '../components/LoginsDetails';
+// import { AddLoginsDetails } from '../components/LoginsDetails';
 import '../css/login.css';
+import axios from "axios";
 
 const LoginForm = () => {
     const navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-    const [logins, setLogins] = useState([]);
+    // const [logins, setLogins] = useState([]);
   
     const handleUsernameChange = (event) => {
       setUsername(event.target.value);
@@ -18,23 +19,33 @@ const LoginForm = () => {
       setPassword(event.target.value);
     };
   
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
       event.preventDefault();
-      console.log("evento de submit acionado")
+      try {
+            const response = await axios.get('https://api.airtable.com/v0/app18hif6rR0tVAkT/Login?maxRecords=3&view=Grid%20view', {
+                headers: {
+                    Authorization: 'Bearer patFWS9nyevnpN89P.981364c0cc345536e73139edfae790d9727211ee50e99f1f8af8fe867467f439'
+                }
+            });
+            const records = response.data.records;
+            console.log(records);
 
-      if (username === 'usuario' && password === 'Senha') {
-        console.log("Login bem-sucedido. Redirecionando para a página de busca.");
-        navigate('/search');
-        const loginTime = new Date();
-        AddLoginsDetails(setLogins, username, loginTime);
-      } else {
-        setError('Nome de usuário ou senha incorretos');
-        console.log("Erro: Nome de usuário ou senha incorretos.");
-      }
+            const isValidLogin = records.some(record => {
+              return record.fields.Email === username && record.fields.Senha === password;
+            });
+
+            if (isValidLogin) {
+              navigate('/search');
+              // const loginTime = new Date();
+              // AddLoginsDetails(username, loginTime);
+            } else {
+              setError('Nome de usuário ou senha incorretos');
+            }
+        } catch (error) {
+            console.error('Erro ao buscar dados da API:', error);
+        }
     };
-
-    console.log("Valor da variável logins:", logins);
-
+    
 return (
     <div className="main">
       <div className="loginHeader">
@@ -50,7 +61,7 @@ return (
             <h2 className="titleLoginBox">Login</h2>
             <div className="formItens">
               <div>
-                <input
+                <input required
                   type="text"
                   id="username"
                   placeholder="Username"
@@ -59,7 +70,7 @@ return (
                 />
               </div>
               <div>
-                <input
+                <input required
                   type="password"
                   id="password"
                   placeholder="Password"
@@ -77,6 +88,6 @@ return (
       </div>
   </div>
   );
-};
+}
 
 export default LoginForm;
