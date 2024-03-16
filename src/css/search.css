@@ -37,6 +37,11 @@
     border: none;
 }
 
+.buttonSair a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
 .titleBuscas {
     margin-left: 8%;
     margin-bottom: 40px;

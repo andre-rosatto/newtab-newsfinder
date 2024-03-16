@@ -1,9 +1,16 @@
 import React from "react";
 import '../css/search.css';
 import { GetLoginsDetails } from './LoginsDetails';
+import { useNavigate } from "react-router";
 
 const Search = () => {
     const logins = GetLoginsDetails();
+
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        navigate('/')
+    }
  
     return (
         <div className="main">
@@ -19,7 +26,7 @@ const Search = () => {
                         </button>
                         <button className="buttonSair">
                         <span className="dot">.</span> 
-                        <span>SAIR</span>
+                        <span onClick={handleLogout}>SAIR</span>
                         </button>
                     </div>
                 
