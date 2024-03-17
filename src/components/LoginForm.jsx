@@ -13,7 +13,18 @@ const LoginForm = () => {
   
     const handleUsernameChange = (event) => {
       setUsername(event.target.value);
-    };
+    }
+
+      const handleUsernameBlur = (event) => {
+        const { value } = event.target;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      
+        if (!emailRegex.test(value)) {
+          setError('E-mail inválido');
+        } else {
+          setError('');
+        }
+      };
   
     const handlePasswordChange = (event) => {
       setPassword(event.target.value);
@@ -62,11 +73,12 @@ return (
             <div className="formItens">
               <div>
                 <input required
-                  type="text"
+                  type="email"
                   id="username"
                   placeholder="Username"
                   value={username}
                   onChange={handleUsernameChange}
+                  onBlur={handleUsernameBlur}
                 />
               </div>
               <div>
