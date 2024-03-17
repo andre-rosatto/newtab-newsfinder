@@ -54,6 +54,7 @@
     margin-left: 8%;
     width: 85%;
     height: 760px;
+    overflow-y: auto;
     background-color: #ffffff;
     border-radius: 14px;
     border: none;
