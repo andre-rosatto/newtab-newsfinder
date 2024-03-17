@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import { useNavigate } from 'react-router-dom';
-// import { AddLoginsDetails } from '../components/LoginsDetails';
 import '../css/login.css';
 import axios from "axios";
 
@@ -9,7 +8,6 @@ const LoginForm = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-    // const [logins, setLogins] = useState([]);
   
     const handleUsernameChange = (event) => {
       setUsername(event.target.value);
