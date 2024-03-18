@@ -141,6 +141,18 @@
 	text-decoration: none;
 }
 
+@media screen and (max-width: 1200px) {
+
+	/* lista de notícias */
+	.searchResults .newsCardWrapper {
+		display: flex;
+		flex-direction: column;
+		gap: 25px;
+		margin-top: 170px;
+		margin-bottom: 56px;
+	}
+}
+
 @media screen and (max-width: 750px) {
 
 	/* componente */
@@ -188,8 +200,6 @@
 
 	/* lista de notícias */
 	.searchResults .newsCardWrapper {
-		display: flex;
-		flex-direction: column;
 		gap: 32px;
 		padding: 0 20px;
 		margin-top: 0;
@@ -212,6 +222,6 @@
 
 	.searchResults .newsCard a {
 		font-size: 9px;
-		font-weight: normal;
+		font-weight: 500;
 	}
 }
