@@ -28,7 +28,7 @@ export default class AirtableHandler {
 
 	// getAll(onFetch)
 	//
-	// retorna array de objetos (filtrado por Squad=SQUAD) no formato {id:string, search:string, date:number}
+	// retorna um objeto
 	// params -> parâmetros da URL do fetch
 	// onFetch -> callback chamado quando o fetch resolve
 	//
