@@ -216,7 +216,7 @@ const Home = () => {
 			/>}
 
 			{/* zoom de imagens */}
-			{searchQuery && <div className={`zoomGallery${showZoomedImage ? '' : ' hidden'}`}>
+			{searchQuery && searchResults.length > 0 && <div className={`zoomGallery${showZoomedImage ? '' : ' hidden'}`}>
 				<div className="zoomGalleryWrapper">
 					<ReactImageGallery
 						ref={zoomedImageComp}

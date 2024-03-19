@@ -55,6 +55,11 @@
 	padding: 15px 0;
 	text-align: center;
 	box-shadow: 0 3px 6px #5538EE29;
+	transform-origin: center;
+}
+
+.navbar li a:active {
+	transform: scale(0.95);
 }
 
 .navbar li a.navbarHome,
