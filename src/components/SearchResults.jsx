@@ -1,12 +1,16 @@
-import '../css/SearchResults.css';
+import ReactImageGallery from 'react-image-gallery';
 import Carousel from "./Carousel";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import '../css/SearchResults.css';
 
 const DESKTOP_THRESHOLD = 750;
 
 const SearchResults = ({ query, results }) => {
 	const [itemWidth, setItemWidth] = useState(0);
+	const [showZoomedImage, setShowZoomedImage] = useState(false);
+	const [currentZoomedImageIndex, setCurrentZoomedImageIndex] = useState(0);
 	const [gap, setGap] = useState(0);
+	const zoomedImageComp = useRef();
 
 	useEffect(() => {
 		const handleResize = () => {
@@ -18,15 +22,25 @@ const SearchResults = ({ query, results }) => {
 		return () => window.removeEventListener('resize', handleResize);
 	}, []);
 
-	const handleImageClick = (idx) => {
-		console.log('image click', idx);
+	const handleGalleryImageClick = (e, idx) => {
+		e.stopPropagation();
+		setShowZoomedImage(true);
+		zoomedImageComp.current.slideToIndex(idx);
+	}
+
+	const getContent = (fullContent) => {
+		const ellipsis = fullContent.match(/\[(.*?)\]/g);
+		return fullContent.substring(0, fullContent.indexOf(ellipsis));
 	}
 
 	return (
 		<section className="searchResults">
 			{/* título dos resultados */}
-			{results.length > 0 && <p className="searchResultsTitle">Exibindo os {results.length} resultados mais recentes para {query}</p>}
-			{results.length === 0 && <p className="searchResultsTitle">Nenhum resultado encontrado para {query}</p>}
+			<p className="searchResultsTitle">{
+				results.length > 0
+					? `Exibindo os ${results.length} resultados mais recentes para ${query}`
+					: `Nenhum resultado encontrado para ${query}`}
+			</p>
 
 			{/* carrossel de imagens */}
 			{results.length > 0 && <div className="carouselWrapper">
@@ -36,7 +50,7 @@ const SearchResults = ({ query, results }) => {
 					items={results.map((result, idx) =>
 						<div
 							className="carouselItem"
-							onClick={() => handleImageClick(idx)}
+							onClick={e => handleGalleryImageClick(e, idx)}
 							style={{ backgroundImage: `url("${result.image}")` }}
 						>
 							<p>Postado por:
@@ -74,6 +88,45 @@ const SearchResults = ({ query, results }) => {
 				</div>)}
 			</div>
 			}
+
+			{/* zoom de imagens */}
+			<div className={`zoomedImage${showZoomedImage ? '' : ' hidden'}`}>
+				<div className="zoomedImageWrapper">
+					<div className="closeButtonWrapper">
+						<button onClick={() => setShowZoomedImage(false)}>FECHAR</button>
+					</div>
+					<ReactImageGallery
+						ref={zoomedImageComp}
+						items={results.map(result => {
+							return {
+								original: result.image,
+								originalHeight: `${window.innerHeight / 2}px`,
+								thumbnail: result.image,
+							}
+						})}
+						useBrowserFullscreen={false}
+						showPlayButton={false}
+						showBullets={true}
+						showFullscreenButton={false}
+						additionalClass='zoomedImageGallery'
+						onSlide={idx => setCurrentZoomedImageIndex(idx)}
+					/>
+					{zoomedImageComp.current && <div className="zoomedImageTextWrapper">
+						<p>Postado por: <span>{results[currentZoomedImageIndex].source.name}</span></p>
+						<h2>{results[currentZoomedImageIndex].title}</h2>
+						<h3>{results[currentZoomedImageIndex].description}</h3>
+						<p>{getContent(results[currentZoomedImageIndex].content)}</p>
+						<div className="linkWrapper">
+							<a
+								href={results[currentZoomedImageIndex].url}
+								rel="noreferrer"
+								target="_blank"
+							>Ver mais</a>
+						</div>
+					</div>}
+				</div>
+			</div>
+
 		</section>
 	);
 }
