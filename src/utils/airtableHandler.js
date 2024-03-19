@@ -26,9 +26,7 @@ export default class AirtableHandler {
 		});
 	}
 
-	// get(params, onFetch)
-	//
-	// retorna um objeto
+	// get(params, onFetch) -> Object
 	// params -> parâmetros da URL do fetch
 	// onFetch -> callback chamado quando o fetch resolve
 	//
