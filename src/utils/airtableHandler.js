@@ -31,19 +31,15 @@ export default class AirtableHandler {
 	// retorna array de objetos (filtrado por Squad=SQUAD) no formato {id:string, search:string, date:number}
 	// onFetch -> callback chamado quando o fetch resolve
 	// ex: Airtable.getAll(results => console.log(results));
-	static getAll(onFetch) {
-		const result = [];
-		fetch(`${AIRTABLE_API}?view=Grid view&filterByFormula=({Squad}) = "${SQUAD}"`, {
+	static getAll(params, onFetch) {
+		fetch(`${AIRTABLE_API}?${params}`, {
 			method: 'GET',
 			headers: {
 				"Authorization": `Bearer ${AIRTABLE_TOKEN}`,
 				"Content-Type": "application/json"
 			}
 		}).then(res => res.json()).then(data => {
-			data.records.forEach(record =>
-				result.push({ id: record.id, search: record.fields.Busca, date: record.fields.Data })
-			);
-			if (typeof onFetch === 'function') onFetch(result);
+			if (typeof onFetch === 'function') onFetch(data);
 		});
 	}
 }
