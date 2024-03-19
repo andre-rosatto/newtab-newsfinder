@@ -158,6 +158,7 @@
 	left: 0;
 	top: 0;
 	z-index: 5;
+	overflow-y: auto;
 }
 
 .searchResults .zoomedImage.hidden {
@@ -169,6 +170,8 @@
 
 .searchResults .zoomedImageWrapper {
 	padding: 25px;
+	display: flex;
+	flex-direction: column;
 }
 
 .searchResults .zoomedImageWrapper .closeButtonWrapper {
@@ -207,6 +210,7 @@
 
 .searchResults .zoomedImageGallery {
 	margin: auto;
+	max-width: 100%;
 }
 
 .searchResults .zoomedImageTextWrapper {
@@ -214,7 +218,8 @@
 	color: white;
 }
 
-.searchResults .zoomedImageTextWrapper p span {
+.searchResults .zoomedImageTextWrapper p a {
+	text-decoration: none;
 	font-weight: bold;
 }
 

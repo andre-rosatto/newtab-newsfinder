@@ -100,7 +100,7 @@ const SearchResults = ({ query, results }) => {
 						items={results.map(result => {
 							return {
 								original: result.image,
-								originalHeight: `${window.innerHeight / 2}px`,
+								originalHeight: `${window.innerWidth >= DESKTOP_THRESHOLD ? window.innerHeight / 2 : window.innerHeight / 4}px`,
 								thumbnail: result.image,
 							}
 						})}
@@ -108,11 +108,16 @@ const SearchResults = ({ query, results }) => {
 						showPlayButton={false}
 						showBullets={true}
 						showFullscreenButton={false}
-						additionalClass='zoomedImageGallery'
+						additionalClass="zoomedImageGallery"
 						onSlide={idx => setCurrentZoomedImageIndex(idx)}
 					/>
 					{zoomedImageComp.current && <div className="zoomedImageTextWrapper">
-						<p>Postado por: <span>{results[currentZoomedImageIndex].source.name}</span></p>
+						<p>Postado por: <a
+							href={results[currentZoomedImageIndex].source.url}
+							rel="noreferrer"
+							target="_blank"
+						>{results[currentZoomedImageIndex].source.name}</a>
+						</p>
 						<h2>{results[currentZoomedImageIndex].title}</h2>
 						<h3>{results[currentZoomedImageIndex].description}</h3>
 						<p>{getContent(results[currentZoomedImageIndex].content)}</p>
