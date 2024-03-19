@@ -26,12 +26,12 @@ export default class AirtableHandler {
 		});
 	}
 
-	// get(params, onFetch) -> Object
+	// getSearches(params, onFetch) -> Object
 	// params -> parâmetros da URL do fetch
 	// onFetch -> callback chamado quando o fetch resolve
 	//
-	// ex: Airtable.getAll('filterByFormula=({Squad}) = "${SQUAD}', results => console.log(results));
-	static get(params, onFetch) {
+	// ex: Airtable.getSearches('filterByFormula=({Squad}) = "${SQUAD}', results => console.log(results));
+	static getSearches(params, onFetch) {
 		fetch(`${AIRTABLE_API}?${params}`, {
 			method: 'GET',
 			headers: {
