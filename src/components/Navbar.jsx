@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import '../css/Navbar.css';
 
-const Navbar = ({ home, about, login, exit }) => {
+const Navbar = ({ home, about, login, exit, onExitClick }) => {
 	// home, about, login, exit -> definem quais botões são exibidos
+	// onExitClick -> callback para o botão SAIR
 
 	// define se a navbar está fixa e com transparência
 	const [fixed, setFixed] = useState(false);
@@ -24,13 +25,15 @@ const Navbar = ({ home, about, login, exit }) => {
 					<a className="navbarHome" href="/">HOME</a>
 				</li>}
 				{about && <li>
-					<a className="navbarAbout" href="/">SOBRE</a>
+					<a className="navbarAbout" href="/about">SOBRE</a>
 				</li>}
 				{login && <li>
-					<a className="navbarLogin" href="/">LOGIN</a>
+					<a className="navbarLogin" href="/login">LOGIN</a>
 				</li>}
 				{exit && <li>
-					<a className="navbarExit" href="/">EXIT</a>
+					<a className="navbarExit" href="/" onClick={() => {
+						if (typeof onExitClick === 'function') onExitClick()
+					}}>EXIT</a>
 				</li>}
 			</ul>
 		</nav>
