@@ -150,11 +150,11 @@ const Home = () => {
 	const [searchResults, setSearchResults] = useState();
 	const [searchQuery, setSearchQuery] = useState(null);
 
-	const handleSearchChange = (e) => {
+	const handleSearchChange = e => {
 		setSearchText(e.target.value.trimStart().substring(0, 20));
 	}
 
-	const handleSearchSubmit = (e) => {
+	const handleSearchSubmit = e => {
 		e.preventDefault();
 
 		// post da busca no airtable

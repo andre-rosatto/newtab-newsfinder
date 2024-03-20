@@ -18,13 +18,13 @@ const Carousel = ({ items, itemWidth, gap, previousButton, nextButton, pip }) =>
 		return () => window.removeEventListener('resize', handleResize);
 	}, [itemWidth, gap, items]);
 
-	const slide = (offset) => {
+	const slide = offset => {
 		const totalWidth = items.length * (itemWidth + gap) - gap;
 		const newPosition = Math.max(Math.min(0, position + offset), -totalWidth + el?.current?.offsetWidth);
 		setPosition(newPosition);
 	};
 
-	const startSwipe = (e) => {
+	const startSwipe = e => {
 		setIsSwipping(true);
 		setLastX(e.touches[0].clientX);
 	}
@@ -33,7 +33,7 @@ const Carousel = ({ items, itemWidth, gap, previousButton, nextButton, pip }) =>
 		setIsSwipping(false);
 	}
 
-	const swipe = (e) => {
+	const swipe = e => {
 		if (!isSwipping) return;
 		const delta = e.touches[0].clientX - lastX;
 		slide(delta);
@@ -47,7 +47,7 @@ const Carousel = ({ items, itemWidth, gap, previousButton, nextButton, pip }) =>
 		return 0;
 	}
 
-	const handlePipClick = (idx) => {
+	const handlePipClick = idx => {
 		const totalWidth = items.length * (itemWidth + gap) - gap;
 		let pos = -idx * Math.floor(el.current.offsetWidth / (itemWidth + gap)) * (itemWidth + gap);
 		pos = Math.max(Math.min(0, pos), -totalWidth + el?.current?.offsetWidth);
