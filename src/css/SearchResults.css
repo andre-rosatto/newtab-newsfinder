@@ -107,7 +107,7 @@
 /* lista de notícias */
 .searchResults .newsCardWrapper {
 	display: grid;
-	grid-template-columns: auto auto;
+	grid-template-columns: repeat(2, 1fr);
 	gap: 60px 77px;
 	padding: 0 186px;
 	margin-top: 196px;
@@ -146,7 +146,16 @@
 	text-decoration: none;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1500px) {
+
+	/* lista de notícias */
+	.searchResults .newsCardWrapper {
+		gap: 20px 30px;
+		padding: 0 115px;
+	}
+}
+
+@media screen and (max-width: 1250px) {
 
 	/* lista de notícias */
 	.searchResults .newsCardWrapper {
