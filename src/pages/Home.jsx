@@ -163,12 +163,13 @@ const Home = () => {
 		// fetch na API de busca
 		setSearchQuery(null);
 		const abortController = new AbortController();
-		fetch(`${SEARCH_API_URL}?q=${searchText}&max=10&apikey=${SEARCH_API_KEY}`, { signal: abortController.signal })
+		fetch(`${SEARCH_API_URL}?q="${searchText}"&max=10&apikey=${SEARCH_API_KEY}`, { signal: abortController.signal })
 			.then(res => res.json())
 			.then(data => {
 				setSearchResults(data.articles);
 				setSearchQuery(searchText);
-			}).catch(() => {
+			}).catch(err => {
+				console.log('error', err);
 				abortController.abort();
 			});
 	}
@@ -209,11 +210,15 @@ const Home = () => {
 			</form>
 
 			{/* resultados da busca */}
-			{searchQuery && <SearchResults
+			{searchQuery && !searchResults.error && <SearchResults
 				query={searchQuery}
 				results={searchResults}
 				onImageClick={handleGalleryImageClick}
 			/>}
+			{/* quantidade de pesquisas diárias excedida */}
+			{searchResults?.error && <p className='searchError'>
+				Limite de pesquisas diárias alcançado. :(<br />Tente novamente amanhã.
+			</p>}
 
 			{/* zoom de imagens */}
 			{searchQuery && searchResults.length > 0 && <div className={`zoomGallery${showZoomedImage ? '' : ' hidden'}`}>
