@@ -83,16 +83,6 @@
 	opacity: 1;
 }
 
-/* mensagem de erro */
-.home .searchError {
-	font-size: 32px;
-	font-weight: bold;
-	text-align: center;
-	margin-top: 0;
-	margin-bottom: 114px;
-	padding: 0 157px;
-}
-
 /* galeria com zoom */
 .home .zoomGallery {
 	position: fixed;

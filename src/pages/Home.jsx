@@ -168,8 +168,7 @@ const Home = () => {
 			.then(data => {
 				setSearchResults(data.articles);
 				setSearchQuery(searchText);
-			}).catch(err => {
-				console.log('error', err);
+			}).catch(() => {
 				abortController.abort();
 			});
 	}
@@ -210,15 +209,11 @@ const Home = () => {
 			</form>
 
 			{/* resultados da busca */}
-			{searchQuery && !searchResults.error && <SearchResults
+			{searchQuery && <SearchResults
 				query={searchQuery}
 				results={searchResults}
 				onImageClick={handleGalleryImageClick}
 			/>}
-			{/* quantidade de pesquisas diárias excedida */}
-			{searchResults?.error && <p className='searchError'>
-				Limite de pesquisas diárias alcançado. :(<br />Tente novamente amanhã.
-			</p>}
 
 			{/* zoom de imagens */}
 			{searchQuery && searchResults.length > 0 && <div className={`zoomGallery${showZoomedImage ? '' : ' hidden'}`}>
