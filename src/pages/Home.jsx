@@ -163,7 +163,7 @@ const Home = () => {
 		// fetch na API de busca
 		setSearchQuery(null);
 		const abortController = new AbortController();
-		fetch(`${SEARCH_API_URL}?q="${searchText}"&max=10&apikey=${SEARCH_API_KEY}`, { signal: abortController.signal })
+		fetch(`${SEARCH_API_URL}?q="${searchText.replace(/"/g, ' ').trim()}"&max=10&apikey=${SEARCH_API_KEY}`, { signal: abortController.signal })
 			.then(res => res.json())
 			.then(data => {
 				setSearchResults(data.articles);
