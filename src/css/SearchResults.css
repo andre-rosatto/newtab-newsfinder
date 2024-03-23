@@ -1,0 +1,242 @@
+/* css do componente da imagem com zoom */
+@import "~react-image-gallery/styles/css/image-gallery.css";
+
+/* componente */
+.searchResults {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	max-width: 1920px;
+	margin-top: 150px;
+}
+
+.searchResults .searchResultsTitle {
+	color: #3634F7;
+	font-size: 32px;
+	font-weight: bold;
+	text-align: center;
+	margin-top: 0;
+	margin-bottom: 114px;
+	padding: 0 157px;
+}
+
+/* carrossel de imagens */
+.searchResults .carouselWrapper {
+	position: relative;
+	padding: 0 157px;
+	height: 287px;
+}
+
+.searchResults div.carouselItem {
+	width: 287px;
+	height: 287px;
+	position: relative;
+	overflow: hidden;
+	border-radius: 21px;
+	background-size: cover;
+	background-position: center;
+}
+
+.searchResults div.carouselItem p {
+	color: white;
+	margin: 0;
+	text-align: left;
+	text-shadow: 0 0 3px black, 0 0 3px black;
+	font-size: 17px;
+	position: absolute;
+	bottom: 21px;
+	left: 20px;
+}
+
+.searchResults div.carouselItem p a {
+	display: block;
+	font-weight: 500;
+	text-decoration: none;
+	color: white;
+}
+
+.searchResults div.carouselItem p a {
+	font-size: 21px;
+}
+
+.searchResults .previousButton,
+.searchResults .nextButton {
+	position: absolute;
+	width: 64px;
+	height: 64px;
+	background-color: white;
+	border: none;
+	border-radius: 64px;
+	box-shadow: 0 6px 13px #5538EE42;
+	top: 110px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 21px;
+	cursor: pointer;
+	padding: 0;
+}
+
+.searchResults .Carousel__button-disabled {
+	opacity: 0.5;
+	cursor: default;
+}
+
+.searchResults .previousButton {
+	background-image: url('../assets/icon-arrow-left.svg');
+	left: -32px;
+}
+
+.searchResults .nextButton {
+	background-image: url('../assets/icon-arrow-right.svg');
+	right: -32px;
+}
+
+.searchResults .pip {
+	width: 15px;
+	height: 15px;
+	background-color: #CBCBCB;
+	border-radius: 100%;
+	cursor: pointer;
+	margin-top: 56px;
+}
+
+.searchResults .Carousel__current-pip .pip {
+	background-color: #3634F7;
+}
+
+/* lista de notícias */
+.searchResults .newsCardWrapper {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 60px 77px;
+	padding: 0 186px;
+	margin-top: 196px;
+	margin-bottom: 183px;
+}
+
+.searchResults .newsCard {
+	display: flex;
+	flex-direction: column;
+	border: 1px solid #5538EE24;
+	padding: 42px 53px;
+	box-shadow: 8px 5px 10px #5538EE14;
+}
+
+.searchResults .newsCard h2 {
+	font-size: 27px;
+	text-align: left;
+	margin: 0;
+}
+
+.searchResults .newsCard p {
+	font-size: 19px;
+	text-align: left;
+	margin-top: 5px;
+	margin-bottom: 17px;
+}
+
+.searchResults .newsCard div {
+	text-align: right;
+}
+
+.searchResults .newsCard a {
+	font-size: 20px;
+	font-weight: bold;
+	color: #3634F7;
+	text-decoration: none;
+}
+
+@media screen and (max-width: 1500px) {
+
+	/* lista de notícias */
+	.searchResults .newsCardWrapper {
+		gap: 20px 30px;
+		padding: 0 115px;
+	}
+}
+
+@media screen and (max-width: 1250px) {
+
+	/* lista de notícias */
+	.searchResults .newsCardWrapper {
+		display: flex;
+		flex-direction: column;
+		gap: 25px;
+		margin-top: 170px;
+		margin-bottom: 56px;
+		padding: 0 140px;
+	}
+}
+
+@media screen and (max-width: 750px) {
+
+	/* componente */
+	.searchResults {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		margin-top: 3px;
+	}
+
+	.searchResults .searchResultsTitle {
+		font-size: 22px;
+		margin-bottom: 32px;
+		padding: 0 25px;
+	}
+
+	/* carrossel de imagens */
+	.searchResults .carrousel {
+		overflow-x: auto;
+		margin-top: 32px;
+		padding: 0 20px;
+	}
+
+	.searchResults .carouselWrapper {
+		position: relative;
+		padding: 0 0 0 25px;
+	}
+
+	.searchResults div.carouselItem {
+		width: 160px;
+		height: 227px;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.searchResults div.carouselItem p {
+		bottom: 29px;
+		left: 15px;
+		font-size: 13px;
+	}
+
+	.searchResults div.carouselItem p a {
+		font-size: 14px;
+	}
+
+	/* lista de notícias */
+	.searchResults .newsCardWrapper {
+		gap: 32px;
+		padding: 0 20px;
+		margin-top: 0;
+		margin-bottom: 56px;
+	}
+
+	.searchResults .newsCard {
+		padding: 21px 15px;
+	}
+
+	.searchResults .newsCard h2 {
+		font-size: 12px;
+	}
+
+	.searchResults .newsCard p {
+		font-size: 12px;
+		margin-top: 4px;
+		margin-bottom: 17px;
+	}
+
+	.searchResults .newsCard a {
+		font-size: 9px;
+		font-weight: 500;
+	}
+}
