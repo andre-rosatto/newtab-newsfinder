@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { useNavigate } from 'react-router-dom';
-import '../css/login.css';
+import '../css/Login.css';
 import axios from "axios";
 
 const LoginForm = () => {
@@ -57,13 +57,6 @@ const LoginForm = () => {
     
 return (
     <div className="main">
-      <div className="loginHeader">
-        <h2 className="newsFinder">newsFinder</h2>
-        <button className="buttonHome">
-          <span className="dot">.</span> 
-          <span className="home">HOME</span>
-        </button>
-      </div>
       <div className="loginBox">
         <div className="intoLogin">
           <form onSubmit={handleSubmit} className="userPassword">
