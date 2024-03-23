@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import '../css/Search.css';
 import { useNavigate } from "react-router";
-import axios from "axios";
+// import axios from "axios";
 
 const Search = () => {
     const [buscas, setBuscas] = useState([]);
@@ -10,7 +10,6 @@ const Search = () => {
     const [semMaisItens, setSemMaisItens] = useState(false);
     const [page, setPage] = useState(1);
     const pageSize = 10;
-    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchBuscas = async () => {
@@ -122,11 +121,6 @@ const Search = () => {
 //     fetchBuscas();
 // }, [page]);
 
-
-    const handleLogout = () => {
-        navigate('/')
-    };
-
     const handleNextPage = () => {
         setPage(prevPage => prevPage + 1);
     }
@@ -137,22 +131,6 @@ const Search = () => {
  
     return (
         <div className="main">
-            <div className="navbar">
-                    <div className="titleNews">
-                        <h2 className="newsFinder">newsFinder</h2>
-                    </div>
-                
-                    <div className="btnHeader">
-                        <button className="buttonHome">
-                        <span className="dot">.</span> 
-                        <span className="home">HOME</span>
-                        </button>
-                        <button className="buttonSair">
-                        <span className="dot">.</span> 
-                        <span onClick={handleLogout}>SAIR</span>
-                        </button>
-                    </div> 
-            </div>
                 <div>
                     <h2 className="titleBuscas">Buscas Realizadas</h2>
                     <table className="tableBuscas">
