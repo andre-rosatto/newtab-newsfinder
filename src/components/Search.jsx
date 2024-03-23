@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import '../css/Search.css';
-import AirtableHandler from "../utils/airtableHandler";
 
 function Search() {
     const [searchResults, setSearchResults] = useState([]);
-    const [offset, setOffset] = useState('');
+    const [offsets, setOffsets] = useState([]);
+    const [currentPage, setCurrentPage] = useState(0);
     const [semMaisItens, setSemMaisItens] = useState(false);
 
     const getNextPage = () => {
@@ -14,8 +14,8 @@ function Search() {
 
             let url = 'https://api.airtable.com/v0/app18hif6rR0tVAkT/Buscas?pageSize=10&view=Grid%20view';
 
-            if (offset) {
-                url += '&offset=' + offset;
+            if (currentPage > 0) {
+                url += `&offset=${offsets[currentPage - 1]}`;
             }
 
             fetch(url, {
@@ -25,7 +25,7 @@ function Search() {
             .then((response) => response.json())
             .then((result) => {
                 if (result && result.offset) {
-                    setOffset(result.offset);
+                    setOffsets([...offsets, result.offset]); // Armazenar o novo offset
                 } else {
                     setSemMaisItens(true);
                 }
@@ -38,15 +38,25 @@ function Search() {
         }
     };
 
+    const handleNextPage = () => {
+        setCurrentPage(currentPage + 1);
+    };
+
+    const handlePreviousPage = () => {
+        if (currentPage > 0) {
+            setCurrentPage(currentPage - 1);
+        }
+    };
+
     useEffect(() => {
         getNextPage();
-    }, []); // Chama a função quando o componente é montado
+    }, [currentPage]); // Atualiza os dados sempre que a página atual muda
 
     return (
         <div className="main">
             <div>
                 <h2 className="titleBuscas">Buscas Realizadas</h2>
-                <table className="tableBuscas">
+                <table className="tableBuscas" cellspacing="0">
                     <thead className="tableHeader">
                         <tr>
                             <th className="nameBuscas">Buscas</th>
@@ -58,16 +68,18 @@ function Search() {
                         {searchResults.map((result) => (
                             <tr key={result.id}>
                                 <td className="colBuscas">{result.fields.Busca}</td>
-                                <td className="colDate">{new Date(result.fields.Data).toLocaleDateString()}</td>
-                                <td className="colTime">{new Date(result.createdTime).toLocaleTimeString()}</td>
+                                <td className="colDate">{new Date(result.fields.Data).toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit'})}</td>
+                                <td className="colTime">{new Date(result.createdTime).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}</td>
                             </tr>
                         ))}
                     </tbody>
                 </table>
+                <div className="btPages">
+                    <button onClick={handlePreviousPage} disabled={currentPage === 0}>&#60;</button>
+                    <button onClick={handleNextPage} disabled={semMaisItens}>&#62;</button>
+                </div>
             </div>
-            <div>
-                <button onClick={getNextPage}>Next</button>
-            </div>
+            
         </div>
     );
 }
