@@ -1,168 +1,75 @@
 import React, { useState, useEffect } from "react";
 import '../css/Search.css';
-import { useNavigate } from "react-router";
-// import axios from "axios";
+import AirtableHandler from "../utils/airtableHandler";
 
-const Search = () => {
-    const [buscas, setBuscas] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const [offset, setOffset] = useState(null);
+function Search() {
+    const [searchResults, setSearchResults] = useState([]);
+    const [offset, setOffset] = useState('');
     const [semMaisItens, setSemMaisItens] = useState(false);
-    const [page, setPage] = useState(1);
-    const pageSize = 10;
 
-    useEffect(() => {
-        const fetchBuscas = async () => {
-            setLoading(true);
-            try {
-                const myHeaders = new Headers();
-                myHeaders.append("Authorization", "Bearer patFWS9nyevnpN89P.981364c0cc345536e73139edfae790d9727211ee50e99f1f8af8fe867467f439")
-            
+    const getNextPage = () => {
+        if (!semMaisItens) {
+            const myHeaders = new Headers();
+            myHeaders.append("Authorization", "Bearer patFWS9nyevnpN89P.981364c0cc345536e73139edfae790d9727211ee50e99f1f8af8fe867467f439");
 
-                let url = "https://api.airtable.com/v0/app18hif6rR0tVAkT/Buscas";
+            let url = 'https://api.airtable.com/v0/app18hif6rR0tVAkT/Buscas?pageSize=10&view=Grid%20view';
 
-                if (offset) {
-                    url += '&offset=' + offset;
-                }
+            if (offset) {
+                url += '&offset=' + offset;
+            }
 
-                const response = await fetch(url, {
-                    method: "GET",
-                    headers: myHeaders
-                });
-
-                const result = await response.json();
-
-                if(result.offset) {
+            fetch(url, {
+                method: "GET",
+                headers: myHeaders
+            })
+            .then((response) => response.json())
+            .then((result) => {
+                if (result && result.offset) {
                     setOffset(result.offset);
                 } else {
-                    setSemMaisItens(true)
+                    setSemMaisItens(true);
                 }
 
-                setBuscas(result.records);
-                console.log(result.records);
-            } catch (error) {
-                console.log("Erro", error)
-            } finally {
-                setLoading(false)
-            };
+                setSearchResults(result.records);
+            })
+            .catch((error) => console.log(error));
+        } else {
+            console.log('Acabaram as páginas');
         }
+    };
 
-        fetchBuscas();
-    }, [page]); 
+    useEffect(() => {
+        getNextPage();
+    }, []); // Chama a função quando o componente é montado
 
-    // var offset = "";
-    // var semMaisItens = "";
-
-    // function getNextPage() {
-    //     if (!semMaisItens) {
-    //         const myHeaders = new Headers();
-    //         myHeaders.append("Authorization", "Bearer patFWS9nyevnpN89P.981364c0cc345536e73139edfae790d9727211ee50e99f1f8af8fe867467f439")
-
-    //         let url = "https://api.airtable.com/v0/app18hif6rR0tVAkT/Buscas";
-
-    //         if (offset) {
-    //             url += '&offset=' + offset;
-    //         }
-
-    //         fetch(url, {
-    //             method: "GET",
-    //             headers: myHeaders
-    //         })
-
-    //         .then((response) => response.json())
-    //         .then((result) => {
-    //             if(result && result.offset) {
-    //                 offset = result.offset;
-    //             } else {
-    //                 semMaisItens = true;
-    //             }
-
-    //             console.log(result.records);
-    //         })
-
-    //         .catch((error) => console.error(error));
-    //     } else {
-    //         console.log("Sem mais dados")
-    //     }
-
-    //     getNextPage()
-    // }
-
-
-
-// useEffect(() => {
-//     const fetchBuscas = async () => {
-//         setLoading(true);
-//         try {
-//             const response = await axios.get('https://api.airtable.com/v0/app18hif6rR0tVAkT/Buscas', {
-//                 params: {
-//                     maxRecords: pageSize,
-//                     pageSize: pageSize,
-//                     view: 'Grid view',
-//                     offset: (page - 1) * pageSize,
-//                 },
-//                 headers: {
-//                     Authorization: 'Bearer patFWS9nyevnpN89P.981364c0cc345536e73139edfae790d9727211ee50e99f1f8af8fe867467f439'
-//                 }
-    
-//             });
-    
-//             setBuscas(response.data.records);
-//             setOffset(response.data.offset);
-//             console.log(response.data.offset)
-        
-//         } catch (error) {
-//             console.error('Erro ao buscar dados da API:', error);
-//         } finally {
-//             setLoading(false);
-//         }
-//     };
-
-//     fetchBuscas();
-// }, [page]);
-
-    const handleNextPage = () => {
-        setPage(prevPage => prevPage + 1);
-    }
-
-    const handlePreviousPage = () => {
-        setPage(prevPage => Math.max(prevPage - 1, 1));
-    }
- 
     return (
         <div className="main">
-                <div>
-                    <h2 className="titleBuscas">Buscas Realizadas</h2>
-                    <table className="tableBuscas">
-                        <thead className="tableHeader">
-                            <tr>
-                                <th className="nameBuscas">Buscas</th>
-                                <th>Data</th>
-                                <th>Hora</th>
+            <div>
+                <h2 className="titleBuscas">Buscas Realizadas</h2>
+                <table className="tableBuscas">
+                    <thead className="tableHeader">
+                        <tr>
+                            <th className="nameBuscas">Buscas</th>
+                            <th>Data</th>
+                            <th>Hora</th>
+                        </tr>
+                    </thead>
+                    <tbody className="tableBody">
+                        {searchResults.map((result) => (
+                            <tr key={result.id}>
+                                <td className="colBuscas">{result.fields.Busca}</td>
+                                <td className="colDate">{new Date(result.fields.Data).toLocaleDateString()}</td>
+                                <td className="colTime">{new Date(result.createdTime).toLocaleTimeString()}</td>
                             </tr>
-                        </thead>
-                        <tbody className="tableBody">
-                            {buscas.map((busca, index) => (
-                                <tr key={index}>
-                                    <td className="colBuscas">{busca.fields.Busca}</td>
-                                    <td className="colDate">{new Date(busca.fields.Data).toLocaleDateString()}</td>
-                                    <td className="colTime">{new Date(busca.createdTime).toLocaleTimeString()}</td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                    {loading && <p>Carregando...</p>}
-                </div>
-                <div>
-                {!loading && offset && buscas.length === pageSize && (
-                    <>
-                        <button onClick={handlePreviousPage} disabled={page === 1}>Página Anterior</button>
-                        <button onClick={handleNextPage}>Próxima pagina</button>
-                    </>
-                    )}
-                </div>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <button onClick={getNextPage}>Next</button>
+            </div>
         </div>
     );
-};
+}
 
 export default Search;
