@@ -1,17 +1,21 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import LoginForm from './components/LoginForm';
-import Search from './components/Search';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import './App.css';
+import Home from './pages/Home';
+import About from './pages/About';
+import LoginForm from './pages/LoginForm';
+import Search from './pages/Search';
+
+const router = createBrowserRouter([
+	{ path: "/", element: <Home />, errorElement: <h1>404 - Página não encontrada</h1> },
+	{ path: "/about", element: <About /> },
+	{ path: "/login", element: <LoginForm /> },
+	{ path: "/search", element: <Search /> },
+]);
 
 export default function App() {
-  const [logins] = useState([]);
-
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<LoginForm />} />
-        <Route path="/search" element={<Search logins={logins}/>} />
-      </Routes>
-    </Router>
-  );
+	return (
+		<div className="App">
+			<RouterProvider router={router} />
+		</div>
+	);
 }
