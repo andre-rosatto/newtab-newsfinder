@@ -7,6 +7,7 @@ function Search() {
     const [currentPage, setCurrentPage] = useState(0);
     const [semMaisItens, setSemMaisItens] = useState(false);
 
+    //Buscar a próxima página com os dados da API
     const getNextPage = () => {
         if (!semMaisItens) {
             const myHeaders = new Headers();
@@ -34,14 +35,16 @@ function Search() {
             })
             .catch((error) => console.log(error));
         } else {
-            console.log('Acabaram as páginas');
+            console.log('Fim dos dados');
         }
     };
 
+    //Ir para a próxima página
     const handleNextPage = () => {
         setCurrentPage(currentPage + 1);
     };
 
+    //Voltar para página anterior
     const handlePreviousPage = () => {
         if (currentPage > 0) {
             setCurrentPage(currentPage - 1);

@@ -12,7 +12,7 @@ const LoginForm = () => {
     const handleUsernameChange = (event) => {
       setUsername(event.target.value);
     }
-
+      //validar campo e-mail:
       const handleUsernameBlur = (event) => {
         const { value } = event.target;
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -28,6 +28,7 @@ const LoginForm = () => {
       setPassword(event.target.value);
     };
   
+    //validar login comparando com os dados da API
     const handleSubmit = async (event) => {
       event.preventDefault();
       try {
@@ -45,8 +46,6 @@ const LoginForm = () => {
 
             if (isValidLogin) {
               navigate('/search');
-              // const loginTime = new Date();
-              // AddLoginsDetails(username, loginTime);
             } else {
               setError('Nome de usuário ou senha incorretos');
             }
