@@ -1,7 +1,7 @@
 import { useState , useEffect } from 'react'
 
 export const useFetch = (url) => {
-    const [dataDescription , setDataDescription] = useState([]);
+    const [dataAbout , setDataAbout] = useState([]);
     const [dataEquip , setDataEquip] = useState([]);
     const [table , setTable] = useState('Projeto');
     const token = 'patFWS9nyevnpN89P.981364c0cc345536e73139edfae790d9727211ee50e99f1f8af8fe867467f439';
@@ -23,10 +23,9 @@ export const useFetch = (url) => {
                     }
                 })
                 const dataResponse = await response.json();
-                console.log(dataResponse);
 
                 if(table === 'Projeto') {
-                    setDataDescription(dataResponse.records);
+                    setDataAbout(dataResponse.records);
                 } else {
                     setDataEquip(dataResponse.records)
                 }
@@ -39,9 +38,9 @@ export const useFetch = (url) => {
         }
         fetchData();
         
-    } , [table , url])
+    } , [table , url , encodedParameter])
 
-  return {dataDescription , dataEquip  , table}
+  return {dataAbout , dataEquip  , table}
 
 }
 

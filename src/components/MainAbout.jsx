@@ -1,77 +1,47 @@
-import styles from './Main.module.css'
+import '../css/MainAbout.css'
 import { FaGithub } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { FaLinkedin } from "react-icons/fa";
 import Ilustration from '../imgs/about-illustration.svg'
-import MemberPhoto3 from '../imgs/img-projeto.jpeg'
 import {useFetch}  from '../hooks/useFetch';
 
 function MainAbout() {
   const url = `https://api.airtable.com/v0/app18hif6rR0tVAkT/`;
-  const {dataDescription : description , dataEquip : equip} = useFetch(url);
+  const {dataAbout : aboutProject, dataEquip : equip} = useFetch(url);
   
   return (
-    <section className={styles.main}>    
-        <section className={styles.description}>
-            <h3>O que é</h3>
-            <p>O NewsFinder é um projeto voltado para localização de noticias, onde é usado requisições 
-               á API(Airtable) para buscar e inserir dados, as tecnologias usadas foram Javascript , 
-               React, HTML e CSS para implementar as páginas correspondente com salvamento e listagem
-               de informações 
-            </p>
-            {description.map((value) => <p key={'index' + value.id}>{value.fields.Sobre}</p>)}
-        </section>
+    <section className='main'>    
+      <section className='aboutProject'>
+          <section className='description'>
+              <h3>O que é</h3>
+              {aboutProject.map((about) => <p key={about.id}>{about.fields.Sobre}</p>)}
+          </section>
 
-        <section className={styles.ilustration}>
-             <img src={Ilustration} alt='Ilustração'/>
-        </section>
+          <section className='ilustration'>
+              <img src={Ilustration} alt='Ilustração'/>
+          </section>
+      </section>
 
-        <section className={styles.whoWeAre}>
+        <section className='whoWeAre'>
               <h3>Quem somos</h3>
-               <section className={styles.teamBio}> 
+               <section className='teamBio'> 
 
-                  <div className={styles.members}>
-                      <img/>
-                      {equip.map((value) => <p>{value.fields.Nome}</p>)}
-                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-                        Unde, eum beatae velit enim porro tenetur officiis ipsam earum nulla expedita. 
-                        Doloribus mollitia saepe recusandae veniam sequi sunt impedit sit nihil.
-                      </p>
-                      <div className={styles.socialMedia}>
-                          <a href='https://github.com' target='blank'><FaGithub/></a>
-                          <a href='https://gmail.com'  target='blank'><MdEmail/></a>
-                          <a href='https://linkedin.com' target='blank'><FaLinkedin/></a>
-                      </div>
-                  </div>
-
-                  <div className={styles.members}>
-                      <img/>
-                      <p>Nome Sobrenome</p>
-                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-                        Unde, eum beatae velit enim porro tenetur officiis ipsam earum nulla expedita. 
-                        Doloribus mollitia saepe recusandae veniam sequi sunt impedit sit nihil.
-                      </p>
-                      <div className={styles.socialMedia}>
-                          <a href='https://github.com' target='blank'><FaGithub/></a>
-                          <a href='https://gmail.com'  target='blank'><MdEmail/></a>
-                          <a href='https://linkedin.com' target='blank'><FaLinkedin/></a>
-                      </div>
-                  </div>
-
-                  <div className={styles.members}>
-                      <img  src={MemberPhoto3}/>
-                      <p>Vinicyos Ferreira</p>
-                      <p>Contribuindo com um projeto em React
-                       e suas nuances , além da parte lógica elaborada com Javascript , 
-                       entusisata de tecnologia com experiência em infraestrura e 
-                       conhecimentos em programação front end e sistema ERP
-                      </p>
-                      <div className={styles.socialMedia}>
-                          <a href='https://github.com/VinicyosFerreira' target='blank'><FaGithub/></a>
-                          <a href='https://mailto:vinifr987@gmail.com'  target='blank'><MdEmail/></a>
-                          <a href='https://www.linkedin.com/in/vinicyos-ferreira/' target='blank'><FaLinkedin/></a>
-                      </div>
-                  </div>
+               {equip.map((value) => {
+                    return (       
+                       <div className='members' key={value.id}>
+                            <img src={value.fields.Imagem[0].url}/>
+                            <p>{value.fields.Nome}</p>
+                            <p>
+                                {value.fields.Descrição}
+                            </p>
+                            <div className='socialMedia'>
+                                <a href={value.fields.Github} target='blank'><FaGithub/></a>
+                                <a href={value.fields.Email}  target='blank'><MdEmail/></a>
+                                <a href={value.fields.LinkedIn} target='blank'><FaLinkedin/></a>
+                            </div>
+                        </div>
+                      )
+                    })}
               </section>
         </section>
     </section>

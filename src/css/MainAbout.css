@@ -6,17 +6,16 @@
     gap : 120px;
 }
 
+.aboutProject {
+    display: flex;
+    gap : 120px;
+}
+
 .description {
-    width: 45%;
     max-width: 700px;
     line-height: 30px;
     font-size: 20px;
     color : #292929;
-}
-
-.whoWeAre {
-    margin-top: 80px;
-    width: 100%;
 }
 
 .description h3 ,  .whoWeAre h3 {
@@ -29,23 +28,26 @@
     margin-bottom: 25px;
 }
 
-.whoWeAre h3 {
-    margin-bottom: 80px;
-}
-
-.ilustration {
-    width: 45%;
-}
-
 .ilustration img {
-    width: 100%;
     max-width: 700px;
 }
+
+.whoWeAre {
+    margin-top: 80px;
+    width: 100%;
+}
+
+.whoWeAre h3 {
+    margin-bottom: 80px;
+    text-align: center;
+}
+
 
 .teamBio {
    display: flex;
    gap : 50px;
    color : #292929;
+   justify-content: center;
 }
 
 .members {
@@ -91,6 +93,11 @@
         gap : 60px;
     }
 
+    .aboutProject {
+        flex-direction: column;
+        gap : 60px;
+    }
+
     .description {
         width: 100%;
     }
@@ -117,7 +124,6 @@
         margin-top : 40px;
     }
 
-
     .whoWeAre h3 {
         margin-right: auto;
         font-size: 20px;
@@ -132,7 +138,7 @@
 
     .members {
         width: 250px;
-        height: 400px;
+        height: auto;
     }
 
     .members > svg {
@@ -161,4 +167,11 @@
     .ilustration {
         width: 50%;
     }
+}
+
+@media (min-width:1800px){
+    .main{
+        justify-content: center;
+    }
+
 }

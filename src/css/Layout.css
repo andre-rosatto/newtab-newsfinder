@@ -60,6 +60,18 @@ nav svg {
     background-color: #3633F7;
 }
 
+.footer {
+    margin-top: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #D842BD;
+    height: 150px;
+    font-size: 20px;
+    color : #fff;
+}
+
+
 /****** RESPONSIVIDADE PARA DISPOSITIVOS MENORES ******/
 @media (max-width : 700px) {
 
@@ -95,3 +107,8 @@ nav svg {
 }
 
 
+@media (max-width : 700px) {
+    .footer {
+        font-size: 10px;
+    }
+}
