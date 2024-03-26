@@ -29,12 +29,16 @@ const Home = () => {
 		// fetch das pesquisas
 		//
 		// primeiro fetch
-		// AirtableHandler.getSearches(null, (data) => {
-		// 	console.log(data);
+		// AirtableHandler.getSearches(
+		//		null,
+		//		data => console.log(data),
+		//		error => conlog.error(error)
 		// });
 		// fetches subsequentes
-		// AirtableHandler.getSearches(data.offset, (data) => {
-		// 	console.log(data);
+		// AirtableHandler.getSearches(
+		//		data.offset,
+		//		data => console.log(data),
+		//		error => conlog.error(error)
 		// });
 
 
