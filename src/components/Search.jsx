@@ -51,6 +51,16 @@ function Search() {
         }
     };
 
+    //Ir para a primeira página
+    const handleFirstPage = () => {
+        setCurrentPage(0);
+    };
+
+    //Ir para a última página
+    const handleLastPage = () => {
+        setCurrentPage(offsets.length);
+    };
+
     useEffect(() => {
         getNextPage();
     }, [currentPage]); // Atualiza os dados sempre que a página atual muda
@@ -59,7 +69,7 @@ function Search() {
         <div className="main">
             <div>
                 <h2 className="titleBuscas">Buscas Realizadas</h2>
-                <table className="tableBuscas" cellspacing="0">
+                <table className="tableBuscas" cellSpacing="0">
                     <thead className="tableHeader">
                         <tr>
                             <th className="nameBuscas">Buscas</th>
@@ -78,8 +88,10 @@ function Search() {
                     </tbody>
                 </table>
                 <div className="btPages">
+                    <button onClick={handleFirstPage} disabled={currentPage === 0}>&#60;&#60;</button>
                     <button onClick={handlePreviousPage} disabled={currentPage === 0}>&#60;</button>
                     <button onClick={handleNextPage} disabled={semMaisItens}>&#62;</button>
+                    <button onClick={handleLastPage} disabled={currentPage === offsets.length - 1}>&#62;&#62;</button>
                 </div>
             </div>
             
@@ -88,3 +100,4 @@ function Search() {
 }
 
 export default Search;
+ 
