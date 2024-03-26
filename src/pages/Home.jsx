@@ -26,7 +26,7 @@ const Home = () => {
 		e.preventDefault();
 
 
-		// fetch das pesquisas
+		// fetch das buscas
 		//
 		// primeiro fetch
 		// AirtableHandler.getSearches(
