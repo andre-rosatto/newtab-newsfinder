@@ -43,7 +43,7 @@ const Home = () => {
 
 
 		// post da busca no airtable
-		AirtableHandler.post(searchText, Date.now());
+		AirtableHandler.post(searchText, Date.now(), err => console.error(err));
 
 		// fetch na API de busca
 		setSearchQuery(null);
