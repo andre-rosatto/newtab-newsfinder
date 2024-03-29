@@ -160,12 +160,8 @@
         gap : 80px;
     }
 
-    .description {
-        width: 40%;
-    }
-
-    .ilustration {
-        width: 50%;
+    .ilustration img {
+        max-width: 600px;
     }
 }
 
@@ -173,5 +169,4 @@
     .main{
         justify-content: center;
     }
-
 }
