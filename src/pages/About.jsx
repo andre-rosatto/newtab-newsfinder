@@ -1,15 +1,15 @@
 import HeaderAbout from "../components/HeaderAbout"
 import MainAbout from "../components/MainAbout"
-import FooterAbout from "../components/FooterAbout"
-import Navbar from "../components/NavBar"
+import Footer from "../components/FooterAbout"
+import Navbar from "../components/Navbar"
 
 export default function About() {
 	return (
 		<div>
-			<HeaderAbout/>
 			<Navbar home login />
-			<MainAbout/>
-			<FooterAbout/>
+			<HeaderAbout />
+			<MainAbout />
+			<Footer />
 		</div>
 	)
 }
