@@ -25,23 +25,6 @@ const Home = () => {
 	const handleSearchSubmit = e => {
 		e.preventDefault();
 
-
-		// fetch das buscas
-		//
-		// primeiro fetch
-		// AirtableHandler.getSearches(
-		//		null,
-		//		data => console.log(data),
-		//		error => conlog.error(error)
-		// });
-		// fetches subsequentes
-		// AirtableHandler.getSearches(
-		//		data.offset,
-		//		data => console.log(data),
-		//		error => conlog.error(error)
-		// });
-
-
 		// post da busca no airtable
 		AirtableHandler.post(searchText, Date.now(), err => console.error(err));
 
