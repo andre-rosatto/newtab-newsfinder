@@ -47,15 +47,20 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	align-items: center;
 	text-decoration: none;
 	font-size: 17px;
 	color: white;
 	border-radius: 50px;
 	width: 170px;
-	padding: 15px 0;
+	padding: 15px 0 15px 15px;
 	text-align: center;
 	box-shadow: 0 3px 6px #5538EE29;
 	transform-origin: center;
+	box-sizing: border-box;
+	background-position: 40px center;
+	background-repeat: no-repeat;
+	background-size: 15px;
 }
 
 .navbar li a:active {
@@ -72,24 +77,20 @@
 	background-color: #3633F7;
 }
 
-.navbar li a::before {
-	margin-right: 15px;
+.navbar li a.navbarHome {
+	background-image: url('../assets/icon-home.svg');
 }
 
-.navbar li a.navbarHome::before {
-	content: url('../assets/icon-home.svg');
+.navbar li a.navbarAbout {
+	background-image: url('../assets/icon-info-circle.svg');
 }
 
-.navbar li a.navbarAbout::before {
-	content: url('../assets/icon-info-circle.svg');
+.navbar li a.navbarLogin {
+	background-image: url('../assets/icon-user-alt.svg');
 }
 
-.navbar li a.navbarLogin::before {
-	content: url('../assets/icon-user-alt.svg');
-}
-
-.navbar li a.navbarExit::before {
-	content: url('../assets/icon-power-off.svg');
+.navbar li a.navbarExit {
+	background-image: url('../assets/icon-power-off.svg');
 }
 
 @media screen and (max-width: 750px) {
@@ -109,19 +110,17 @@
 		font-size: 10px;
 		font-weight: bold;
 		width: 106px;
-		padding: 9px 0;
+		padding: 9px 0 9px 9px;
 		text-align: center;
 		box-shadow: 0 3px 6px #5538EE29;
-	}
-
-	.navbar li a::before,
-	.navbar li a::before {
-		margin-right: 8px;
+		background-position: 25px center;
+		background-size: 9px;
 	}
 }
 
 @media screen and (max-width: 370px) {
 	.navbar li a {
 		width: 90px;
+		background-position: 18px center;
 	}
 }

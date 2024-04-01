@@ -117,7 +117,7 @@
 	color: white;
 	border-radius: 50px;
 	width: 170px;
-	padding: 15px 0 11px 0;
+	padding: 15px 0 11px 15px;
 	text-align: center;
 	box-shadow: 0 3px 6px #5538EE29;
 	border: none;
@@ -127,11 +127,11 @@
 	position: absolute;
 	top: 10px;
 	right: 10px;
-}
-
-.home .zoomGallery button.closeButton::before {
-	content: url('../assets/icon-power-off.svg');
-	margin-right: 15px;
+	background-image: url('../assets/icon-power-off.svg');
+	box-sizing: border-box;
+	background-position: 33px center;
+	background-repeat: no-repeat;
+	background-size: 15px;
 }
 
 .home .zoomGallery button.closeButton:active {
@@ -239,18 +239,17 @@
 	}
 
 	/* galeria com zoom */
-	.home .zoomGalleryWrapper {
-		padding: 15px;
-	}
-
-	.home .zoomGalleryWrapper .closeButtonWrapper button {
+	.home .zoomGallery button.closeButton {
 		font-size: 10px;
 		width: 106px;
-		padding: 9px 0;
+		padding: 9px 0 9px 9px;
+		box-shadow: 0 3px 6px #5538EE29;
+		background-position: 20px center;
+		background-size: 9px;
 	}
 
-	.home .zoomGalleryWrapper .closeButtonWrapper button::before {
-		margin-right: 8px;
+	.home .zoomGalleryWrapper {
+		padding: 15px;
 	}
 
 	.home .zoomGalleryTextWrapper h2 {
@@ -268,6 +267,8 @@
 }
 
 @media screen and (max-width: 370px) {
+
+	/* componente */
 	.home header .banner {
 		margin-left: 0;
 	}
@@ -279,11 +280,9 @@
 	.home header .banner p {
 		font-size: 14px;
 	}
-}
 
-/*
-queries
-1200
-700
-370
-*/
+	/* galeria com zoom */
+	.home .zoomGalleryWrapper .closeButtonWrapper button {
+		width: 90px;
+	}
+}

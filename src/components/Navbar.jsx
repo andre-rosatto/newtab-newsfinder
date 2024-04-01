@@ -33,7 +33,7 @@ const Navbar = ({ home, about, login, exit, onExitClick }) => {
 				{exit && <li>
 					<a className="navbarExit" href="/" onClick={e => {
 						if (typeof onExitClick === 'function') onExitClick(e)
-					}}>EXIT</a>
+					}}>SAIR</a>
 				</li>}
 			</ul>
 		</nav>
