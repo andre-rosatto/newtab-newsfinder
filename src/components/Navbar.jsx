@@ -9,9 +9,9 @@ const Navbar = ({ home, about, login, exit, onExitClick }) => {
 	const [fixed, setFixed] = useState(false);
 
 	useEffect(() => {
-		//scroll acima de 250px define fixed = true
+		//scroll acima de 130px define fixed = true
 		const handleScroll = () => {
-			setFixed(window.scrollY > 250);
+			setFixed(window.scrollY > 130);
 		};
 		window.addEventListener('scroll', handleScroll);
 		return () => window.removeEventListener('scroll', handleScroll);
