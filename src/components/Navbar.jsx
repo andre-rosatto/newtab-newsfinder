@@ -18,7 +18,7 @@ const Navbar = ({ home, about, login, exit, onExitClick }) => {
 	}, []);
 
 	return (
-		<nav className={`navbar${window.scrollY > 130 ? ' fixed' : ''}`}>
+		<nav className={`navbar${fixed ? ' fixed' : ''}`}>
 			<h1><a href="/">newsFinder</a></h1>
 			<ul>
 				{home && <li>

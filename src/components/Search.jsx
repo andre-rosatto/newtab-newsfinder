@@ -6,10 +6,10 @@ function Search() {
 	const [searchResults, setSearchResults] = useState([]);
 	const [offsets, setOffsets] = useState([]);
 	const [currentPage, setCurrentPage] = useState(0);
-	const [semMaisItens, setSemMaisItens] = useState(false);
+	const [noMoreItems, setNoMoreItems] = useState(false);
 
 	const getNextPage = () => {
-		if (!semMaisItens) {
+		if (!noMoreItems) {
 			if (currentPage === 0) {
 				// Primeira página
 				AirtableHandler.getSearches(
@@ -21,8 +21,8 @@ function Search() {
 						}
 
 						if (data.records.length === 0) {
-							setSemMaisItens(true);
-							console.log('semMaisItens atualizado:', semMaisItens);
+							setNoMoreItems(true);
+							console.log('semMaisItens atualizado:', noMoreItems);
 
 						}
 					},
@@ -40,8 +40,8 @@ function Search() {
 						} else {
 							if (data.records.length === 0) {
 								console.log(data.records.length);
-								setSemMaisItens(true);
-								console.log('semMaisItens atualizado:', semMaisItens);
+								setNoMoreItems(true);
+								console.log('semMaisItens atualizado:', noMoreItems);
 							}
 						}
 					},
@@ -55,7 +55,7 @@ function Search() {
 
 	//Ir para a próxima página
 	const handleNextPage = () => {
-		if (!semMaisItens && currentPage < offsets.length) {
+		if (!noMoreItems && currentPage < offsets.length) {
 			setCurrentPage(currentPage + 1);
 		}
 	};
@@ -70,6 +70,7 @@ function Search() {
 
 	useEffect(() => {
 		getNextPage();
+		// eslint-disable-next-line
 	}, [currentPage]); // Atualiza os dados sempre que a página atual muda
 
 	return (
@@ -96,7 +97,7 @@ function Search() {
 				</table>
 				<div className="btPages">
 					<button onClick={handlePreviousPage} disabled={currentPage === 0}>&#60;</button>
-					<button onClick={handleNextPage} disabled={semMaisItens === true}>&#62;</button>
+					<button onClick={handleNextPage} disabled={noMoreItems === true}>&#62;</button>
 				</div>
 			</div>
 
