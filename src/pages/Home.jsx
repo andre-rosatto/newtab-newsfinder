@@ -1,5 +1,4 @@
 import '../css/Home.css';
-
 import { useRef, useState } from 'react';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
