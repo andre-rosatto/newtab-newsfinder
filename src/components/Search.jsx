@@ -1,5 +1,4 @@
-// import React, { useState, useEffect } from "react";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import '../css/Search.css';
 import AirtableHandler from "../utils/airtableHandler";
 
@@ -69,9 +68,10 @@ function Search() {
 		}
 	};
 
-	// useEffect(() => {
-	// 	getNextPage();
-	// }, [currentPage]); // Atualiza os dados sempre que a página atual muda
+	useEffect(() => {
+		getNextPage();
+		// eslint-disable-next-line
+	}, [currentPage]); // Atualiza os dados sempre que a página atual muda
 
 	return (
 		<div className="search">
