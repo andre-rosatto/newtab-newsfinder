@@ -1,6 +1,6 @@
-# Newsfinder
+# NewsFinder
 
-Newsfinder é um app criado em React para busca de notícias e imagens.
+NewsFinder é um projeto voltado para localização de noticias, onde são usadas requisições á API (Airtable) para buscar e inserir dados. As tecnologias usadas foram Javascript, React, HTML e CSS para implementar as páginas correspondentes com salvamento e listagem de informações.
 
 
 
