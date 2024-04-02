@@ -6,6 +6,7 @@ import Navbar from '../components/Navbar';
 import SearchResults from '../components/SearchResults';
 import AirtableHandler from '../utils/airtableHandler';
 import ReactImageGallery from 'react-image-gallery';
+import axios from 'axios';
 
 const SEARCH_API_URL = 'https://gnews.io/api/v4/search';
 const SEARCH_API_KEY = '9327490b8ff243c91b713513fc0e6c2b';
@@ -30,14 +31,10 @@ const Home = () => {
 
 		// fetch na API de busca
 		setSearchQuery(null);
-		const abortController = new AbortController();
-		fetch(`${SEARCH_API_URL}?q="${searchText.replace(/"/g, ' ').trim()}"&max=10&apikey=${SEARCH_API_KEY}`, { signal: abortController.signal })
-			.then(res => res.json())
-			.then(data => {
-				setSearchResults(data.articles);
+		axios.get(`${SEARCH_API_URL}?q="${searchText.replace(/"/g, ' ').trim()}"&max=10&apikey=${SEARCH_API_KEY}`)
+			.then(response => {
+				setSearchResults(response.data.articles);
 				setSearchQuery(searchText);
-			}).catch(() => {
-				abortController.abort();
 			});
 	}
 
