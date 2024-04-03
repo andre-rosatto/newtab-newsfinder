@@ -1,0 +1,5 @@
+# Redirects from what the browser requests to what we serve
+/           https://newtabnewsfinder.netlify.app
+/about    	https://newtabnewsfinder.netlify.app/about
+/search			https://newtabnewsfinder.netlify.app/search
+/login      https://www.petsofnetlify.com/login
