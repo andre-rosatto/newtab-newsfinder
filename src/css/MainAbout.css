@@ -34,7 +34,7 @@
 	line-height: 200%;
 }
 
-.mainAbout .ilustration img {
+.mainAbout .illustration img {
 	max-width: 700px;
 }
 
@@ -113,12 +113,12 @@
 		line-height: 150%;
 	}
 
-	.mainAbout .ilustration {
+	.mainAbout .illustration {
 		width: 100%;
 		text-align: center;
 	}
 
-	.mainAbout .ilustration img {
+	.mainAbout .illustration img {
 		width: 80%;
 		max-width: 600px;
 	}

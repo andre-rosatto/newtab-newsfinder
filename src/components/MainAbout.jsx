@@ -2,7 +2,7 @@ import '../css/MainAbout.css'
 import { FaGithub } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { FaLinkedin } from "react-icons/fa";
-import Ilustration from '../assets/about-illustration.svg'
+import Illustration from '../assets/about-illustration.svg'
 import { useFetch } from '../utils/useFetch';
 
 function MainAbout() {
@@ -17,8 +17,8 @@ function MainAbout() {
 					{aboutProject.map((about) => <p key={about.id}>{about.fields.Sobre}</p>)}
 				</section>
 
-				<section className='ilustration'>
-					<img src={Ilustration} alt='Ilustração' />
+				<section className='illustration'>
+					<img src={Illustration} alt='Ilustração' />
 				</section>
 			</section>
 
