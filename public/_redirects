@@ -1,5 +1,2 @@
 # Redirects from what the browser requests to what we serve
-/           /
-/about    	/about
-/login      /login
-/search			/search
+/* 	/index.html	200
