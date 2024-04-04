@@ -9,6 +9,7 @@
 	height: 1081px;
 	position: relative;
 	padding-top: 236px;
+	background-size: cover;
 }
 
 .login .loginBox {

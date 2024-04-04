@@ -4,10 +4,11 @@
 	height: 1081px;
 	position: relative;
 	padding-top: 150px;
+	background-size: cover;
 }
 
 
-.search .titleBuscas {
+.search .titleSearches {
 	margin-left: 8%;
 	margin-bottom: 40px;
 	font-family: Rubik;
@@ -15,7 +16,7 @@
 	color: #ffffff;
 }
 
-.search .tableBuscas {
+.search .tableSearches {
 	margin-left: 8%;
 	width: 85%;
 	height: 760px;
@@ -43,16 +44,16 @@
 	font-size: 24px;
 }
 
-.search .tableBuscas tbody tr td {
+.search .tableSearches tbody tr td {
 	border-bottom: 1px solid #ccc;
 	/* Adiciona uma borda inferior cinza */
 }
 
-.search .tableBuscas tbody tr:last-child td {
+.search .tableSearches tbody tr:last-child td {
 	border-bottom: none;
 }
 
-.search .colBuscas {
+.search .colSearches {
 	color: #292929;
 	width: 70%;
 	padding-left: 50px;
@@ -83,7 +84,7 @@
 		height: 1016px;
 	}
 
-	.search .titleBuscas {
+	.search .titleSearches {
 		font-size: 33px;
 		display: flex;
 		justify-content: center;
@@ -91,7 +92,7 @@
 		margin-left: 0px;
 	}
 
-	.search .tableBuscas {
+	.search .tableSearches {
 		width: 95%;
 		height: 751px;
 		background-color: #ffffff;
@@ -100,7 +101,7 @@
 		margin: auto;
 	}
 
-	.search .colBuscas {
+	.search .colSearches {
 		width: 70%;
 		padding-left: 10px;
 	}

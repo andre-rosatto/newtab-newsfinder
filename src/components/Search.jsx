@@ -22,7 +22,7 @@ function Search() {
 
 						if (data.records.length === 0) {
 							setNoMoreItems(true);
-							console.log('semMaisItens atualizado:', noMoreItems);
+							console.log('noMoreItems atualizado:', noMoreItems);
 
 						}
 					},
@@ -41,7 +41,7 @@ function Search() {
 							if (data.records.length === 0) {
 								console.log(data.records.length);
 								setNoMoreItems(true);
-								console.log('semMaisItens atualizado:', noMoreItems);
+								console.log('noMoreItems atualizado:', noMoreItems);
 							}
 						}
 					},
@@ -76,8 +76,8 @@ function Search() {
 	return (
 		<div className="search">
 			<div>
-				<h2 className="titleBuscas">Buscas Realizadas</h2>
-				<table className="tableBuscas" cellSpacing="0">
+				<h2 className="titleSearches">Buscas Realizadas</h2>
+				<table className="tableSearches" cellSpacing="0">
 					<thead className="tableHeader">
 						<tr>
 							<th className="nameBuscas">Buscas</th>
@@ -88,7 +88,7 @@ function Search() {
 					<tbody className="tableBody">
 						{searchResults.map((result) => (
 							<tr key={result.id}>
-								<td className="colBuscas">{result.fields.Busca}</td>
+								<td className="colSearches">{result.fields.Busca}</td>
 								<td className="colDate">{new Date(result.fields.Data).toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' })}</td>
 								<td className="colTime">{new Date(result.createdTime).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}</td>
 							</tr>
