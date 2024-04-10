@@ -101,7 +101,7 @@ useEffect(() => {
 	AirtableHandler.getTeam(records => setEquip(records));
 }, []);
 
-(será necessário tb mudar:
+(também será necessário mudar:
 	aboutProject.map		para			aboutProject?.map
 	equip.map						para			equip?.map
 )
