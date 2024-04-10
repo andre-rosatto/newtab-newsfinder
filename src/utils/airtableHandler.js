@@ -56,7 +56,7 @@ export default class AirtableHandler {
 	// onFetch: function -> callback chamado quando o fetch resolve
 	// onError: function -> callback chamado quando ocorre um erro
 	//
-	// ex: Airtable.getProject(results, results => console.log(results));
+	// ex: Airtable.getProject(results => console.log(results));
 	static getProject(onFetch, onError) {
 		axios.get(`${AIRTABLE_API}/Projeto?filterByFormula=({Squad}%20=%20"${SQUAD}")`,
 			{
@@ -75,7 +75,7 @@ export default class AirtableHandler {
 	// onFetch: function -> callback chamado quando o fetch resolve
 	// onError: function -> callback chamado quando ocorre um erro
 	//
-	// ex: Airtable.getTeam(results, results => console.log(results));
+	// ex: Airtable.getTeam(results => console.log(results));
 	static getTeam(onFetch, onError) {
 		axios.get(`${AIRTABLE_API}/Equipe?filterByFormula=({Squad}%20=%20"${SQUAD}")`,
 			{
