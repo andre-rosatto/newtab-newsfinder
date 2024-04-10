@@ -72,6 +72,7 @@ const Home = () => {
 					autoFocus
 				/>
 			</form>
+			{searchText.length > 0 && searchText.length < 2 && <p className="searchError">Busca deve conter de 2 a 20 caracteres.</p>}
 
 			{/* resultados da busca */}
 			{searchQuery && <SearchResults
