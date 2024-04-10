@@ -10,7 +10,7 @@ const AIRTABLE_TOKEN = 'patFWS9nyevnpN89P.981364c0cc345536e73139edfae790d9727211
 export default class AirtableHandler {
 	// post(search, date)
 	// search: string -> termo da busca
-	// date: number -> data da busca em formato de número
+	// date: number -> data da busca
 	// onError: function -> callback chamado quando ocorre um erro
 	//
 	// cria um novo registro no formato {"Squad"=SQUAD, "Busca"=search, "Data"=date}
