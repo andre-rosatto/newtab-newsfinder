@@ -39,7 +39,7 @@ export default class AirtableHandler {
 	// ex (primeiro fetch): Airtable.getSearches(null, results => console.log(results));
 	// ex (fetches subsequentes): Airtable.getSearches(results.offset, results => console.log(results));
 	static getSearches(offset, onFetch, onError) {
-		axios.get(`${AIRTABLE_API}/Buscas?filterByFormula=({Squad}%20=%20"${SQUAD}")&pageSize=10&view=Grid%20view${offset ? '&offset=' + offset : ''}`,
+		axios.get(`${AIRTABLE_API}/Buscas?filterByFormula=({Squad}%20=%20"${SQUAD}")&pageSize=10&view=Grid%20view&sort%5B0%5D%5Bfield%5D=Data&sort%5B0%5D%5Bdirection%5D=desc${offset ? '&offset=' + offset : ''}`,
 			{
 				headers: {
 					"Authorization": `Bearer ${AIRTABLE_TOKEN}`,
