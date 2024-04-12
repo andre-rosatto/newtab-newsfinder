@@ -1,15 +1,17 @@
 import '../css/Home.css';
+import "react-image-gallery/styles/css/image-gallery.css";
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
-import SearchResults from '../components/SearchResults';
 import AirtableHandler from '../utils/airtableHandler';
 import ReactImageGallery from 'react-image-gallery';
+import Carousel from '../components/Carousel';
 import axios from 'axios';
 
 const SEARCH_API_URL = 'https://gnews.io/api/v4/search';
 const SEARCH_API_KEY = '9327490b8ff243c91b713513fc0e6c2b';
+const PORTRAIT_THRESHOLD = 750;
 
 const Home = () => {
 	const [showZoomedImage, setShowZoomedImage] = useState(false);
@@ -18,6 +20,18 @@ const Home = () => {
 	const [searchText, setSearchText] = useState('');
 	const [searchResults, setSearchResults] = useState();
 	const [searchQuery, setSearchQuery] = useState(null);
+	const [itemWidth, setItemWidth] = useState(0);
+	const [gap, setGap] = useState(0);
+
+	useEffect(() => {
+		const handleResize = () => {
+			setItemWidth(window.innerWidth >= PORTRAIT_THRESHOLD ? 287 : 160);
+			setGap(window.innerWidth >= PORTRAIT_THRESHOLD ? 45 : 14);
+		}
+		window.addEventListener('resize', handleResize);
+		handleResize();
+		return () => window.removeEventListener('resize', handleResize);
+	}, []);
 
 	const handleSearchChange = e => {
 		setSearchText(e.target.value.trimStart().substring(0, 20));
@@ -33,6 +47,7 @@ const Home = () => {
 		setSearchQuery(null);
 		axios.get(`${SEARCH_API_URL}?q="${searchText.replace(/"/g, ' ').trim()}"&max=10&apikey=${SEARCH_API_KEY}`)
 			.then(response => {
+				console.log(response.data);
 				setSearchResults(response.data.articles);
 				setSearchQuery(searchText);
 			});
@@ -75,11 +90,67 @@ const Home = () => {
 			{searchText.length > 0 && searchText.length < 2 && <p className="searchError">Busca deve conter de 2 a 20 caracteres.</p>}
 
 			{/* resultados da busca */}
-			{searchQuery && <SearchResults
+			{/* {searchQuery && <SearchResults
 				query={searchQuery}
 				results={searchResults}
 				onImageClick={handleGalleryImageClick}
-			/>}
+			/>} */}
+			{searchQuery && <section className="searchResults">
+				{/* título dos resultados */}
+				<p className="searchResultsTitle">{
+					searchResults.length > 0
+						? `Exibindo os ${searchResults.length} resultados mais recentes para ${searchQuery}`
+						: `Nenhum resultado encontrado para ${searchQuery}`}
+				</p>
+
+				{/* carrossel de imagens */}
+				{searchResults.length > 0 && <div className="carouselWrapper">
+					<Carousel
+						gap={gap}
+						itemWidth={itemWidth}
+						items={searchResults.map((result, idx) =>
+							<div
+								className="carouselItem"
+								// onClick={e => { if (typeof onImageClick === 'function') onImageClick(e, idx) }}
+								onClick={e => handleGalleryImageClick(e, idx)}
+								style={{ backgroundImage: `url("${result.image}")` }}
+							>
+								<p>Postado por:
+									<a
+										href={result.source.url}
+										rel="noreferrer"
+										target="_blank"
+										onClick={e => e.stopPropagation()}
+									>
+										{result.source.name}
+									</a>
+								</p>
+							</div>
+						)}
+						previousButton={window.innerWidth >= PORTRAIT_THRESHOLD ? <button className="previousButton"></button> : null}
+						nextButton={window.innerWidth >= PORTRAIT_THRESHOLD ? <button className="nextButton"></button> : null}
+						pip={window.innerWidth >= PORTRAIT_THRESHOLD ? <div className="pip"></div> : null}
+					/>
+				</div>}
+
+				{/* lista de notícias */}
+				{searchResults.length > 0 && <div className="newsCardWrapper">
+					{searchResults.map((result, idx) => <div className="newsCard" key={idx}>
+						<h2>{result.title}</h2>
+						<p>{result.description}</p>
+						<div>
+							<a
+								href={result.url}
+								rel="noreferrer"
+								target="_blank"
+							>
+								Ver mais
+							</a>
+						</div>
+					</div>)}
+				</div>
+				}
+			</section>}
 
 			{/* zoom de imagens */}
 			{searchQuery && searchResults.length > 0 && <div className={`zoomGallery${showZoomedImage ? '' : ' hidden'}`}>
