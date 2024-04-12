@@ -12,6 +12,8 @@ import axios from 'axios';
 const SEARCH_API_URL = 'https://gnews.io/api/v4/search';
 const SEARCH_API_KEY = '9327490b8ff243c91b713513fc0e6c2b';
 const PORTRAIT_THRESHOLD = 750;
+const MIN_SEARCH_SIZE = 2;
+const MAX_SEARCH_SIZE = 20;
 
 const Home = () => {
 	const [showZoomedImage, setShowZoomedImage] = useState(false);
@@ -34,7 +36,7 @@ const Home = () => {
 	}, []);
 
 	const handleSearchChange = e => {
-		setSearchText(e.target.value.trimStart().substring(0, 20));
+		setSearchText(e.target.value.trimStart().substring(0, MAX_SEARCH_SIZE));
 	}
 
 	const handleSearchSubmit = e => {
@@ -78,7 +80,7 @@ const Home = () => {
 			{/* barra de pesquisa */}
 			<form onSubmit={handleSearchSubmit}>
 				{/* desativa busca se estiver vazia */}
-				<button disabled={!searchText || searchText.trim().length < 2}></button>
+				<button disabled={!searchText || searchText.trim().length < MIN_SEARCH_SIZE}></button>
 				<input
 					type="text"
 					placeholder="Buscar..."
@@ -87,7 +89,7 @@ const Home = () => {
 					autoFocus
 				/>
 			</form>
-			{searchText.length > 0 && searchText.length < 2 && <p className="searchError">Busca deve conter de 2 a 20 caracteres.</p>}
+			{searchText.length > 0 && searchText.length < MIN_SEARCH_SIZE && <p className="searchError">A busca deve conter de {MIN_SEARCH_SIZE} a {MAX_SEARCH_SIZE} caracteres.</p>}
 
 			{/* resultados da busca */}
 			{searchQuery && <section className="searchResults">
