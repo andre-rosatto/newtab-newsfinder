@@ -90,11 +90,6 @@ const Home = () => {
 			{searchText.length > 0 && searchText.length < 2 && <p className="searchError">Busca deve conter de 2 a 20 caracteres.</p>}
 
 			{/* resultados da busca */}
-			{/* {searchQuery && <SearchResults
-				query={searchQuery}
-				results={searchResults}
-				onImageClick={handleGalleryImageClick}
-			/>} */}
 			{searchQuery && <section className="searchResults">
 				{/* título dos resultados */}
 				<p className="searchResultsTitle">{
@@ -111,7 +106,6 @@ const Home = () => {
 						items={searchResults.map((result, idx) =>
 							<div
 								className="carouselItem"
-								// onClick={e => { if (typeof onImageClick === 'function') onImageClick(e, idx) }}
 								onClick={e => handleGalleryImageClick(e, idx)}
 								style={{ backgroundImage: `url("${result.image}")` }}
 							>
