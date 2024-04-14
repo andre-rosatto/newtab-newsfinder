@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 
 export const useFetch = (url) => {
 	const [dataAbout, setDataAbout] = useState([]);
@@ -6,13 +6,15 @@ export const useFetch = (url) => {
 	const [table, setTable] = useState('Projeto');
 	const token = 'patFWS9nyevnpN89P.981364c0cc345536e73139edfae790d9727211ee50e99f1f8af8fe867467f439';
 
-	const parameter = {
-		filterByFormula: "({Squad} = '03-24')"
-	}
-
-	const encodedParameter = Object.keys(parameter).map((key) => {
-		return key + '=' + encodeURI(parameter[key]);
-	});
+	const encodedParameter = useMemo(() => {
+		const parameter = {
+			filterByFormula: "({Squad} = '03-24')"
+		}
+		
+		return Object.keys(parameter).map((key) => {
+			return key + '=' + encodeURI(parameter[key]);
+		});
+	} , []) 
 
 	useEffect(() => {
 		async function fetchData() {
@@ -26,21 +28,21 @@ export const useFetch = (url) => {
 
 				if (table === 'Projeto') {
 					setDataAbout(dataResponse.records);
-				} else {
-					setDataEquip(dataResponse.records)
+				} else  {
+					setDataEquip(dataResponse.records);
 				}
-
 				setTable('Equipe');
 			}
 			catch (error) {
 				console.log(error);
 			}
 		}
+
 		fetchData();
+		
+	}, [table, url , encodedParameter])
 
-	}, [table, url, encodedParameter])
-
-	return { dataAbout, dataEquip, table }
+	return {dataAbout, dataEquip, table }
 
 }
 

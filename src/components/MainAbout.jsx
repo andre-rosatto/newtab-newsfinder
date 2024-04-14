@@ -36,7 +36,7 @@ function MainAbout() {
 								</p>
 								<div className='socialMedia'>
 									<a href={value.fields.Github} target='blank'><FaGithub /></a>
-									<a href={value.fields.Email} target='blank'><MdEmail /></a>
+									<a href={`mailto:${value.fields.Email}`} target='blank'><MdEmail /></a>
 									<a href={value.fields.LinkedIn} target='blank'><FaLinkedin /></a>
 								</div>
 							</div>
