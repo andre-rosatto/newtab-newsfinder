@@ -31,7 +31,7 @@ const Navbar = ({ home, about, login, exit, onExitClick }) => {
 			<h1><a href="/">newsFinder</a></h1>
 			<ul>
 				{home && <li>
-					<a className="navbarHome" href="/">HOME</a>
+					<a className="navbarHome" href="/"  onClick={handleExitClick}>HOME</a>
 				</li>}
 				{about && <li>
 					<a className="navbarAbout" href="/about">SOBRE</a>
