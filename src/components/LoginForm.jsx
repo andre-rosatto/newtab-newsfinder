@@ -11,7 +11,7 @@ const LoginForm = () => {
 
 	const handleUsernameChange = (event) => {
 		setUsername(event.target.value);
-	}
+	} 
 	//validar campo e-mail:
 	const handleUsernameBlur = (event) => {
 		const { value } = event.target;
@@ -43,6 +43,8 @@ const LoginForm = () => {
 			});
 
 			if (isValidLogin) {
+				localStorage.setItem('authenticated', 'true')
+				console.log('authenticated:', localStorage.getItem('authenticated'));
 				navigate('/search');
 			} else {
 				setError('Nome de usuário ou senha incorretos');

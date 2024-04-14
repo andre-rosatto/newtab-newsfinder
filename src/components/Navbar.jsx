@@ -8,6 +8,15 @@ const Navbar = ({ home, about, login, exit, onExitClick }) => {
 	// define se a navbar está fixa e com transparência
 	const [fixed, setFixed] = useState(false);
 
+	const handleExitClick = (e) => {
+		// Limpar o localStorage
+		localStorage.removeItem('authenticated');
+		// Chamar a função callback
+		if (typeof onExitClick === 'function') {
+		  onExitClick(e);
+		}
+	  };
+
 	useEffect(() => {
 		//scroll acima de 130px define fixed = true
 		const handleScroll = () => {
@@ -22,7 +31,7 @@ const Navbar = ({ home, about, login, exit, onExitClick }) => {
 			<h1><a href="/">newsFinder</a></h1>
 			<ul>
 				{home && <li>
-					<a className="navbarHome" href="/">HOME</a>
+					<a className="navbarHome" href="/"  onClick={handleExitClick}>HOME</a>
 				</li>}
 				{about && <li>
 					<a className="navbarAbout" href="/about">SOBRE</a>
@@ -31,9 +40,7 @@ const Navbar = ({ home, about, login, exit, onExitClick }) => {
 					<a className="navbarLogin" href="/login">LOGIN</a>
 				</li>}
 				{exit && <li>
-					<a className="navbarExit" href="/" onClick={e => {
-						if (typeof onExitClick === 'function') onExitClick(e)
-					}}>SAIR</a>
+					<a className="navbarExit" href="/" onClick={handleExitClick}>SAIR</a>
 				</li>}
 			</ul>
 		</nav>
