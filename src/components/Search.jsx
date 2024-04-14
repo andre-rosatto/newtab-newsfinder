@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
 import '../css/Search.css';
 import AirtableHandler from "../utils/airtableHandler";
 
@@ -7,6 +8,19 @@ function Search() {
 	const [offsets, setOffsets] = useState([]);
 	const [currentPage, setCurrentPage] = useState(0);
 	const [noMoreItems, setNoMoreItems] = useState(false);
+	const navigate = useNavigate();
+
+	useEffect(() => {
+		const authenticated = localStorage.getItem('authenticated') === 'true';
+		console.log("authenticated:", authenticated)
+		if (!authenticated) {
+			console.log("Redireciondando para /login")
+			navigate('/login');
+		} else {
+			console.log("Usuário autenticado, carregando buscas...")
+			getNextPage();
+		}
+	}, [navigate]);
 
 	const getNextPage = () => {
 		if (!noMoreItems) {
