@@ -13,9 +13,9 @@ const Navbar = ({ home, about, login, exit, onExitClick }) => {
 		localStorage.removeItem('authenticated');
 		// Chamar a função callback
 		if (typeof onExitClick === 'function') {
-		  onExitClick(e);
+			onExitClick(e);
 		}
-	  };
+	};
 
 	useEffect(() => {
 		//scroll acima de 130px define fixed = true
@@ -31,7 +31,7 @@ const Navbar = ({ home, about, login, exit, onExitClick }) => {
 			<h1><a href="/">newsFinder</a></h1>
 			<ul>
 				{home && <li>
-					<a className="navbarHome" href="/"  onClick={handleExitClick}>HOME</a>
+					<a className="navbarHome" href="/" onClick={handleExitClick}>HOME</a>
 				</li>}
 				{about && <li>
 					<a className="navbarAbout" href="/about">SOBRE</a>
