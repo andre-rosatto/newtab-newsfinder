@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import '../css/Navbar.css';
 
-const Navbar = ({ home, about, login, exit, onExitClick }) => {
+const Navbar = ({ home, about, login, search, exit, onExitClick }) => {
 	// home, about, login, exit -> definem quais botões são exibidos
 	// onExitClick -> callback para o botão SAIR
 
@@ -29,6 +29,9 @@ const Navbar = ({ home, about, login, exit, onExitClick }) => {
 				</li>}
 				{login && <li>
 					<a className="navbarLogin" href="/login">LOGIN</a>
+				</li>}
+				{search && <li>
+					<a className="navbarSearch" href="/search">BUSCAS</a>
 				</li>}
 				{exit && <li>
 					<a className="navbarExit" href="/" onClick={e => {

@@ -66,11 +66,13 @@ const Home = () => {
 		return fullContent.substring(0, fullContent.indexOf(ellipsis));
 	}
 
+	const loggedIn = localStorage.getItem('authenticated');
+
 	return (
 		<div className="home">
 			{/* banner */}
 			<header>
-				<Navbar about login />
+				<Navbar about login={!loggedIn} search={loggedIn} />
 				<div className="banner">
 					<h2>Encontre notícias<br />de maneira fácil</h2>
 					<p>Digite o que deseja no campo de buscas e<br />confira os resultados</p>
