@@ -5,7 +5,11 @@ import Search from "../components/Search";
 export default function SearchTable() {
 	return (
 		<div>
-			<Navbar home exit />
+			<Navbar
+				home
+				exit
+				onExitClick={() => localStorage.removeItem('authenticated')}
+			/>
 			<Search />
 		</div>
 	)
