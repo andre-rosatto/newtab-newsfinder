@@ -49,7 +49,6 @@ const Home = () => {
 		setSearchQuery(null);
 		axios.get(`${SEARCH_API_URL}?q="${searchText.replace(/"/g, ' ').trim()}"&max=10&apikey=${SEARCH_API_KEY}`)
 			.then(response => {
-				console.log(response.data);
 				setSearchResults(response.data.articles);
 				setSearchQuery(searchText);
 			});
